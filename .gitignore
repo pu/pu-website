@@ -1,0 +1,9 @@
+*.DS_Store
+*.swp
+coverage/*
+db/*.sqlite3
+db/schema.rb
+log/*
+public/system
+tmp/**/*
+!.keep
