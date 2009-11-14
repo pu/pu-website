@@ -1,0 +1,5 @@
+Description:
+    Creates standard layout for admin area or sample application
+        
+Examples:
+    `./script/generate ninja_layout (admin|app)`

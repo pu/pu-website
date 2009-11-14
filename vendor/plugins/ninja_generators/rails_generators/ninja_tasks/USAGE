@@ -1,0 +1,5 @@
+Description:
+    Create rake tasks for cruisecontrol, cucumber and database backup
+        
+Examples:
+    `./script/generate ninja_tasks`

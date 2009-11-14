@@ -1,0 +1,5 @@
+Description:
+    Creates a haml generator and sass rake task
+        
+Examples:
+    `./script/generate ninja_haml`

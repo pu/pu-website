@@ -1,0 +1,29 @@
+development: &non_production_settings
+  host: <%= file_name %>.local
+  site_url: http://<%= file_name %>.local
+  site_name: <%= file_name %>.com - development
+  admin_email: admin@<%= file_name %>.com
+  support_email: support@<%= file_name %>.com
+  feedback_email: feedback@<%= file_name %>.com
+  system_mailer: no-reply@<%= file_name %>.com
+  
+test:
+  <<: *non_production_settings
+
+staging:
+  host: staging.<%= file_name %>.com
+  site_url: http://staging.<%= file_name %>.com
+  site_name: <%= file_name %>.com - staging
+  admin_email: admin@<%= file_name %>.com
+  support_email: support@<%= file_name %>.com
+  feedback_email: feedback@<%= file_name %>.com
+  system_mailer: no-reply@<%= file_name %>.com
+  
+production:
+  host: www.<%= file_name %>.com
+  site_url: http://www.<%= file_name %>.com
+  site_name: <%= file_name %>.com
+  admin_email: admin@<%= file_name %>.com
+  support_email: support@<%= file_name %>.com
+  feedback_email: feedback@<%= file_name %>.com
+  system_mailer: no-reply@<%= file_name %>.com

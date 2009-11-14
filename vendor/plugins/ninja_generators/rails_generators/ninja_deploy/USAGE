@@ -1,0 +1,7 @@
+Description:
+    Creates a complete deployment
+    APPLICATION_NAME will be used for deployment root folder, mysql user, 
+    mysql database name, and git repository
+        
+Examples:
+    `./script/generate ninja_deploy <APPLICATION_NAME>`

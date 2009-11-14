@@ -1,0 +1,8 @@
+set :scm_username,                      "rails"
+set :scm_password,                      ""
+
+set :database_password,                 ""
+set :deployment_database_password,      ""
+
+set :production_host,                   "xxx.basiszwo.com" # hostname e.g. beta1.basiszwo.com
+set :staging_host,                      "xxx.basiszwo.com" # hostname e.g. beta1.basiszwo.com

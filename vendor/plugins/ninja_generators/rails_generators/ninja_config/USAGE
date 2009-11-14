@@ -1,0 +1,6 @@
+Description:
+    Creates configuration files for hoptoad, newrelic and .gitignore file
+    APPLICATION_NAME will be used for database, settings, newrelic
+        
+Examples:
+    `./script/generate ninja_config <APPLICATION_NAME>`
