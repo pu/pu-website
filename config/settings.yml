@@ -1,0 +1,29 @@
+development: &non_production_settings
+  host: uganda.local
+  site_url: http://uganda.local
+  site_name: uganda.com - development
+  admin_email: admin@uganda.com
+  support_email: support@uganda.com
+  feedback_email: feedback@uganda.com
+  system_mailer: no-reply@uganda.com
+  
+test:
+  <<: *non_production_settings
+
+staging:
+  host: staging.uganda.com
+  site_url: http://staging.uganda.com
+  site_name: uganda.com - staging
+  admin_email: admin@uganda.com
+  support_email: support@uganda.com
+  feedback_email: feedback@uganda.com
+  system_mailer: no-reply@uganda.com
+  
+production:
+  host: www.uganda.com
+  site_url: http://www.uganda.com
+  site_name: uganda.com
+  admin_email: admin@uganda.com
+  support_email: support@uganda.com
+  feedback_email: feedback@uganda.com
+  system_mailer: no-reply@uganda.com
