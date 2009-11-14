@@ -1,0 +1,125 @@
+JrailsUjsHelper
+===============
+
+This plugin will help you in creating unobtrusive javascript links and forms in
+your jRails / jQuery enabled Rails project.
+
+Installation
+============
+
+You will need to either install the jRails plugin, or manually install jQuery
+libraries into your projects public/javascripts folder.
+
+jRails can be found here: http://ennerchi.com/projects/jrails
+
+jRails can be installed with:
+
+./script/plugin install http://ennerchi.googlecode.com/svn/trunk/plugins/jrails
+
+This will install the plugin and copy over some javascript files for you
+
+./script/plugin install git://github.com/mig/jrails_ujs_helper.git
+
+To manually install or copy the javascript files, run this rake task after
+installing the plugin;
+
+rake jrails_ujs_helper:install:javascripts
+
+or
+
+rake jrails_ujs_helper:update:javascripts
+
+The latter would be useful after updating the plugin from github, given any changes
+to the javascript files.
+
+You will need to add a call to yield_authenticity_token in your template header, if
+you are using authenticity_tokens, which you probably should be:
+
+Example, in application.html.erb:
+
+<head>
+  ...
+  <%= yield_authenticity_token %>
+  ...
+</head>
+
+After that, you have three helpers to choose from: ujs_link_to, ujs_form_tag, and ujs_form_for
+
+Each of these methods should be used exactly like you would use a normal link_to, form_tag or form_for.
+
+Note, that because we are striving for unobtrusiveness and graceful degradation, these
+links and forms should work without javascript/ajax calls first.
+
+Example
+=======
+
+link_to:
+
+Let's say you have a link_to like this:
+<%= link_to("Add New Item", new_item_path) %>
+
+Normally, this link would take you to the /items/new template, so you could add a new item.  If you use the ujs_link_to helper, making:
+
+<%= ujs_link_to("Add New Item", new_item_path) %>
+
+The link will perform the same exact function as the link_to would, when javascript is disabled in the clients browser, but will allow you to specify additional behavior when javascript is turned on.
+
+For example:
+
+Let's add an id to it, and put a hidden div under it, in the template:
+<%= ujs_link_to("Add New Item", new_item_path, :id => "new_item_link") %>
+<div id="new_item_form_div" style="display:none;">
+  <% form_for(Item.new) do |form| %>
+   ...
+  <% end %>
+</div>
+
+You could then do something like this in an included javascript file:
+$('#new_item_link').click(function() {
+  this.hide();
+  $('#new_item_form_div').show();
+})
+
+The behavior of this link has completely changed, instead of navigating to the new template, it simply hides itself and displays the hidden div.
+
+Let's make it even cooler though,  let's say that you're new template looks like this:
+# new.html.erb
+<%= render :partial => 'form' %>
+
+and
+# _form.html.erb
+<% ujs_form_for(Item.new) do |form| %>
+  ...form elements...
+<% end %>
+
+You could then do this on a separate page, like the index
+# index.html.erb
+<%= ujs_link_to("Add New Item", new_item_path, :id => "new_item_link") %>
+<div id="new_item_form_div" style="display:none;">
+  <%= render :partial => 'form' %>
+</div>
+
+Now, in the controller:
+# items_controller.rb
+...
+def create
+  @item = Item.new(params[:item])
+  @item.save
+  
+  respond_to do |format|
+    format.html { redirect_to items_path }
+    format.js do
+      render :update do |page|
+        # some javascript, rjs, whatever
+      end
+    end
+  end
+end
+
+Here's what's going to happen, if the user has javascript disabled, they'll click on the "Add New Item" link, navigate to the new template, add their item, and be redirect to the item index page.  Just like normal.
+
+However, if the user has javascript enabled, they'll never leave the index page, the link will show the div with the form in it, and the usj_form_for will alter the behavior so that the form is sending an ajax request.  The respond_to js will then execute with whatever javascript you want.
+
+No crudding up the views with sloppy inline javascript.
+
+Copyright (c) 2008 Mig Swasey, released under the MIT license
