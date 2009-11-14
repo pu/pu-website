@@ -7,19 +7,10 @@ RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.gem 'capistrano'
-  config.gem 'thoughtbot-shoulda', :lib => 'shoulda', :source => 'http://gems.github.com'
-  config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl', :source => 'http://gems.github.com'
-  config.gem 'cucumber'
-  config.gem 'webrat'
-  config.gem 'jnunemaker-matchy', :lib => 'matchy', :source => 'http://gems.github.com'
-  config.gem 'basiszwo-email_spec', :lib => 'email_spec', :source => 'http://gems.github.com'
-  config.gem 'relevance-rcov', :lib => 'rcov', :source => 'http://gems.github.com'
-  config.gem 'jeremymcanally-pending', :lib => 'pending', :source => 'http://gems.github.com'
-  config.gem 'redgreen'
-  config.gem 'norman-friendly_id', :lib => 'friendly_id', :source => 'http://gems.github.com'
+  
+  config.gem 'mysql'  
   config.gem 'RedCloth'
-  config.gem 'mysql'
+  config.gem 'norman-friendly_id', :lib => 'friendly_id', :source => 'http://gems.github.com'
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => 'http://gems.github.com'
   config.gem 'pluginaweek-state_machine', :lib => 'state_machine', :source => 'http://gems.github.com'
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com', :version => '~> 2.3.11'
@@ -27,6 +18,7 @@ Rails::Initializer.run do |config|
   config.gem 'haml'
   config.gem 'chriseppstein-compass', :lib => 'compass', :source => 'http://gems.github.com'
   config.gem 'newrelic_rpm'
+  
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

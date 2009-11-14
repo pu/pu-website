@@ -33,6 +33,7 @@ set :scm, :git
 set :branch, "master"
 set :scm_user, 'git'
 set :scm_passphrase, ""
+#set :repository, "git@github.com:pu/pu-website.git"
 set :repository, "git@git.basiszwo.com:#{application}.git"
 set :deploy_via, :export
 #set :deploy_via, :remote_cache

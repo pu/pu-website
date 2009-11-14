@@ -21,8 +21,22 @@ config.action_controller.allow_forgery_protection    = false
 # The :test delivery method accumulates sent emails in the
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
+config.action_mailer.default_url_options = { :host => "uganda.local" }
 
 # Use SQL instead of Active Record's schema dumper when creating the test database.
 # This is necessary if your schema can't be completely dumped by the schema dumper,
 # like if you have constraints or database-specific column types
 # config.active_record.schema_format = :sql
+
+hostname = `hostname`.delete "\n"
+Paperclip.options[:command_path] = "/opt/local/bin" unless hostname =~ /^(alpha\d{1}|beta\d{1})/
+
+config.gem 'thoughtbot-shoulda', :lib => 'shoulda', :source => 'http://gems.github.com'
+config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl', :source => 'http://gems.github.com'
+config.gem 'cucumber'
+config.gem 'webrat'
+config.gem 'jnunemaker-matchy', :lib => 'matchy', :source => 'http://gems.github.com'
+config.gem 'basiszwo-email_spec', :lib => 'email_spec', :source => 'http://gems.github.com'
+config.gem 'relevance-rcov', :lib => 'rcov', :source => 'http://gems.github.com'
+config.gem 'jeremymcanally-pending', :lib => 'pending', :source => 'http://gems.github.com'
+config.gem 'redgreen'

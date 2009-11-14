@@ -9,6 +9,7 @@ javascripts:
 stylesheets: 
 - base:
   - application
+  - smoothness/jquery-ui-1.7.2.custom
 - base_ie:
   - ie
 - base_print:
