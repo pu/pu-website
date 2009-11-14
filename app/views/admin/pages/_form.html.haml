@@ -1,0 +1,16 @@
+= form.error_messages
+
+.form
+  %ul
+    %li
+      = form.label :title
+      = form.text_field :title, :class => 'text'
+    %li
+      = form.label :permalink
+      = form.text_field :permalink, :class => 'text'
+    %li
+      :javascript
+        mySettings['previewParserPath'] = "#{@page.id.nil? ? admin_preview_new_page_path : preview_admin_page_path(@page)}"
+
+      = form.label :body
+      = form.text_area :body, :class => 'text markItUp'

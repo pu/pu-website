@@ -1,0 +1,26 @@
+%h1 
+  = "Listing Pages (#{@pages.length})"
+
+%p
+  = link_to 'New Page', new_admin_page_path
+
+.table-listing
+  %table
+    %thead
+      %tr
+        %th Title
+        %th Permalink
+        %th Created at
+        %th Updates at
+        %th &nbsp;
+
+    - for page in @pages
+      %tr{ :class => cycle('odd', 'even'), :edit_url => edit_admin_page_path(page) }
+        %td= h page.title
+        %td= h page.permalink
+        %td= h page.created_at
+        %td= h page.updated_at
+      
+        %td
+          = link_to 'Edit', edit_admin_page_path(page)
+          = link_to 'Destroy', admin_page_path(page), :confirm => 'Are you sure?', :method => :delete, :id => "destroy_#{page.id}"

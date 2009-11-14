@@ -1,4 +1,33 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  map.resources :posts
+  map.resources :pages
+  
+  map.resource :contact # basically will be a page
+  
+  map.resource :home
+  
+  
+  
+  map.admin '/admin', :controller => 'admin/dashboard', :action => 'index'
+  map.namespace :admin do |admin|
+    admin.resources :password_resets
+    admin.resources :users
+    admin.preview_new_page '/pages/preview', :controller => 'pages', :action => 'preview'
+    admin.resources :pages, :member => { :preview => :post }
+    
+    admin.resources :activations, :only => [:new, :create]
+    admin.activate_account '/activate/:id', :controller => 'activations', :action => 'activate', :conditions => { :method => :get }
+    
+    admin.resource :user_session
+    admin.login '/login', :controller => 'user_sessions', :action => 'new'
+    admin.logout '/logout', :controller => 'user_sessions', :action => 'destroy', :conditions => { :method => [:post, :get] }
+    
+    admin.root :controller => "admin/dashboard"
+  end
+  
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -31,7 +60,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
+  map.root :controller => "homes", :action => 'show'
 
   # See how all your routes lay out with "rake routes"
 

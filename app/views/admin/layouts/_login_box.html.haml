@@ -1,0 +1,7 @@
+#login_box
+  You are logged in as
+  = link_to @current_user.email, admin_user_path(@current_user)
+  \|
+  = link_to "Logout", admin_user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?"
+  %br
+  = link_to "Back to website", root_path

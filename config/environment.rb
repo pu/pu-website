@@ -18,6 +18,7 @@ Rails::Initializer.run do |config|
   config.gem 'haml'
   config.gem 'chriseppstein-compass', :lib => 'compass', :source => 'http://gems.github.com'
   config.gem 'newrelic_rpm'
+  config.gem "simple-navigation", :lib => "simple_navigation"
   
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
