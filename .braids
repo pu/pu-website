@@ -6,6 +6,13 @@ vendor/plugins/ar-backup:
   revision: 3f019644a9de66b4fe1f3914757db4c9d650b496
   branch: master
   remote: braid/vendor/plugins/ar-backup
+vendor/plugins/cucumber_growler: 
+  squashed: true
+  url: git://github.com/basiszwo/cucumber_growler.git
+  type: git
+  revision: 7cc28e549439d265eeecb7403821eed396d9b56a
+  branch: master
+  remote: braid/vendor/plugins/cucumber-growler
 vendor/plugins/action_mailer_tls: 
   squashed: true
   url: git://github.com/openrain/action_mailer_tls.git

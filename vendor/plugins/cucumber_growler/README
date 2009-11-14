@@ -1,0 +1,31 @@
+CucumberGrowler
+===============
+
+This plugin adds Growl notifications to your Cucumber features.
+
+Prerequisites
+=============
+
+# Growl should be installed on your Mac (http://growl.info)
+# growlnotify should be on your path (it already should)
+# Cucumber should be properly installed (http://github.com/aslakhellesoy/cucumber)
+
+Usage
+=====
+
+Just run 'rake features' or ./script/cucumber features/myfeature.feature as you usually do.
+When cucumber ends its execution you'll see a nice notification on your screen.
+
+Customization
+=============
+
+You can customize the pass, failed, and pending images. Yuo'll find them in cucumber_growler/images
+
+Contributors
+============
+
+Original idea by paolo.dona@gmail.com (paolodona) (2008)
+Complete rewrite by Jan Schwenzien (jeanmartin) (2009)
+Fix by Christian Mayer (mifix) (2009)
+
+Released under the MIT license
