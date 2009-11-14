@@ -1,4 +1,11 @@
 --- 
+vendor/plugins/ar-backup: 
+  squashed: true
+  url: git://github.com/mattetti/ar-backup.git
+  type: git
+  revision: 3f019644a9de66b4fe1f3914757db4c9d650b496
+  branch: master
+  remote: braid/vendor/plugins/ar-backup
 vendor/plugins/action_mailer_tls: 
   squashed: true
   url: git://github.com/openrain/action_mailer_tls.git
