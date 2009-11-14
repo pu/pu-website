@@ -1,0 +1,8 @@
+--- 
+vendor/plugins/action_mailer_tls: 
+  squashed: true
+  url: git://github.com/openrain/action_mailer_tls.git
+  type: git
+  revision: 4c4db7e098d54b2239c1ce7c195417552718418c
+  branch: master
+  remote: braid/vendor/plugins/action-mailer-tls
