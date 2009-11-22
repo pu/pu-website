@@ -9,9 +9,6 @@
       = form.label :title
       = form.text_field :title, :class => 'text'
     %li
-      = form.label :permalink
-      = form.text_field :permalink, :class => 'text'
-    %li
       :javascript
         mySettings['previewParserPath'] = "#{@post.id.nil? ? admin_preview_new_post_path : preview_admin_post_path(@post)}"
 

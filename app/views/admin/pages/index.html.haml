@@ -9,7 +9,6 @@
     %thead
       %tr
         %th Title
-        %th Permalink
         %th Created at
         %th Updated at
         %th &nbsp;
@@ -17,7 +16,6 @@
     - for page in @pages
       %tr{ :class => cycle('odd', 'even'), :edit_url => edit_admin_page_path(page) }
         %td= h page.title
-        %td= h page.permalink
         %td= h page.created_at
         %td= h page.updated_at
       

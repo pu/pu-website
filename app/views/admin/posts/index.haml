@@ -10,7 +10,6 @@
       %tr
         %th Category
         %th Title
-        %th Permalink
         %th Created at
         %th Updated at
         %th &nbsp;
@@ -19,7 +18,6 @@
       %tr{ :class => cycle('odd', 'even'), :edit_url => edit_admin_post_path(post) }
         %td= h post.category.name if post.category
         %td= h post.title
-        %td= h post.permalink
         %td= h post.created_at
         %td= h post.updated_at
       
