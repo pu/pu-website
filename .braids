@@ -6,6 +6,13 @@ vendor/plugins/ar-backup:
   revision: 3f019644a9de66b4fe1f3914757db4c9d650b496
   branch: master
   remote: braid/vendor/plugins/ar-backup
+vendor/plugins/acts_as_textiled: 
+  squashed: true
+  url: git://github.com/defunkt/acts_as_textiled.git
+  type: git
+  revision: fce0e1f58f01403568bee122a256cfab1adc6b5b
+  branch: master
+  remote: braid/vendor/plugins/acts-as-textiled
 vendor/plugins/cucumber_growler: 
   squashed: true
   url: git://github.com/basiszwo/cucumber_growler.git
