@@ -1,0 +1,77 @@
+h2. Welcome to Projekthilfe Uganda e.V.
+
+This website is released as an open source project to help similar projects build a simple website. At the moment this project is under construction and many things may change in the future development.
+
+
+h2. Structure
+
+The project uses vary gems and plugins. The most important are:
+
+* "haml, sass":http://github.com/nex3/haml/ and "compass":http://github.com/chriseppstein/compass/
+* "devise":http://github.com/plataformatec/devise/
+* "acts_as_textiled":http://github.com/defunkt/acts_as_textiled
+* "simple_navigation":http://github.com/andi/simple-navigation
+* "searchlogic":http://github.com/binarylogic/searchlogic
+* "friendly_id":http://github.com/norman/friendly_id
+
+h2. Containing Modules
+
+* User authentication, forgot password, resend activation
+* Pages for easily editable static pages
+* Posts to add any categorisable news
+
+
+h3. User authentication
+
+User authentication is provided through "devise":http://github.com/plataformatec/devise/.
+
+To create a new user type the following on the rails console:
+
+<pre><code>
+  User.create(:email => 'your@mail.com@', :password => 'your_pass')
+</code></pre>
+
+
+h3. Pages / Post
+
+Pages and posts take plain html or textile. They include the "markItUp! Universal markup editor":http://markitup.jaysalvat.com/home/. The editor currently generates HTML. It's possible to use any other markup language. Just include another set.js file in your application.html
+
+
+
+h2. Preview
+
+h3. Frontend
+
+!https://github.com/pu/pu-website/raw/master/doc/frontend-startpage.png(PU Startpage)!
+
+
+h3. Backend
+
+!https://github.com/pu/pu-website/raw/master/doc/backend-listing.png(PU backend overview)!
+
+!https://github.com/pu/pu-website/raw/master/doc/backend-edit.png(PU edit entry)!
+
+
+h2. TODO
+
+Please refer to TODO file.
+
+
+h2. Contributors
+
+* Stefan Botzenhart (http://github.com/basiszwo)
+* Christian Buggle (http://github.com/buggle)
+* Eike Herzbach (http://github.com/bricks)
+
+You like to contribute too? Just contact us or drop us a pull request or whatever.
+
+
+h2. Bugs and Feedback
+
+If you discover any bugs or want to drop a line, feel free to create an issue on GitHub.
+
+http://github.com/pu/pu-website/issues
+<br/>
+http://groups.google.com/group/plataformatec-devise
+
+MIT License. Copyright 2009 ninjaconcept. http://www.ninjaconcept.com
