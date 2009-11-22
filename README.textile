@@ -72,7 +72,6 @@ h2. Bugs and Feedback
 If you discover any bugs or want to drop a line, feel free to create an issue on GitHub.
 
 http://github.com/pu/pu-website/issues
-<br/>
 http://groups.google.com/group/plataformatec-devise
 
 MIT License. Copyright 2009 ninjaconcept. http://www.ninjaconcept.com
