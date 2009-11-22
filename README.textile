@@ -62,6 +62,7 @@ h2. Contributors
 * Stefan Botzenhart (http://github.com/basiszwo)
 * Christian Buggle (http://github.com/buggle)
 * Eike Herzbach (http://github.com/bricks)
+* Simon Wiesmayr / Frontend UI
 
 You like to contribute too? Just contact us or drop us a pull request or whatever.
 
