@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :posts, :member => { :preview => :post }
     
     admin.resource :dashboard
+    # admin.resources :users
     
     admin.root :controller => "admin/dashboards", :action => 'show'
   end

@@ -5,7 +5,7 @@ SimpleNavigation::Configuration.run do |navigation|
   # navigation.renderer = Your::Custom::Renderer
   
   # Specify the class that will be applied to active navigation items. Defaults to 'selected'
-  # navigation.selected_class = 'your_selected_class'
+  navigation.selected_class = 'selected'
   
   # Normally only the current sub menu is renderedwhen render_navigation is called
   # setting this to true render all submenus which is useful for javascript
@@ -22,15 +22,18 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Define the primary navigation
   navigation.items do |primary|
-    primary.item :dashboard, 'Dashboard', admin_path
-    primary.item :pages, 'Pages', admin_pages_path
-    primary.item :posts, 'Posts', admin_posts_path
-    # primary.item :users, 'Users', admin_users_path
+    primary.item :home, 'Startseite', root_path
+    primary.item :posts, 'Aktuelles', posts_path
+    primary.item :projects, 'Projekte', projects_path
+    
+    primary.item :contact, 'Kontakt/Impressum', page_path('kontakt') 
+    primary.item :donate, 'Spenden', page_path('spenden') 
     
     # you can also specify a css id or class to attach to this particular level
     # works for all levels of the menu
-    # primary.dom_id = 'menu-id'
-    primary.dom_class = 'sf-menu'
+    
+    # primary.dom_id = 'menu'
+    # primary.dom_class = 'sf-menu'
     
     # You can turn off auto highlighting for a specific level
     # primary.auto_highlight = false

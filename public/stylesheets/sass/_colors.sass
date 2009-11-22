@@ -1,80 +1,60 @@
-//frontend
 
-!dark_color = #363B3D
-!mid_color = #363B3D + #555
-!light_color = #fff
-!light_grey = #E5E5E5
-//#E5E5E5
-!signal_color = #f0f
+!light_color                                    = #fff
+!light_grey                                     = #E5E5E5
+!lighter_grey                                   = #efefef
+!dark_grey                                      = #363B3D
+!orange                                         = #F18F28
 
+!font_color                                     = !dark_grey
 
-//backend
+!link_color                                     = #F18F28
+!link_hover_color                               = !link_color - #222
+!link_focus_color                               = !link_hover_color
+!link_active_color                              = !link_color + #C00
+!link_visited_color                             = !link_color - #333
 
-!font_color            = #363B3D
+!link_quiet_color                               = !font_color + #333
+!link_quiet_hover_color                         = !link_quiet_color - #222
 
-/!quiet_color           = !font_color + #333
-!quiet_color           = #aaa
-!louder_color            = !quiet_color - #222
-!loud_color            = !font_color - #222
+!error_color                                    = #cc0000
+!error_bg_color                                 = #fee
+!error_border_color                             = !error_color - #222
+!error_field_border_color                       = !error_color - #222
+!error_field_bg_color                           = #fcc
 
-!header_color          = !font_color - #111
-!footer_color          = #aaa
+!quiet_color                                    = #aaa
+!louder_color                                   = !quiet_color - #222
+!loud_color                                     = !font_color - #222
+                                                
+!header_color                                   = !font_color - #111
+!footer_color                                   = !link_quiet_color
 
-!link_color            = !signal_color
-//!signal_color 
-//#3FA6E3
-!link_hover_color      = !link_color - #222
-!link_focus_color      = !link_hover_color
-!link_active_color     = !link_color + #C00
-!link_visited_color    = !link_color - #333
+!feedback_border_color                          = #DDD
+                                                
+!success_color                                  = #264409
+!success_bg_color                               = #E6EFC2
+!success_border_color                           = #C6D880
+                                                
+!notice_color                                   = #514721
+!notice_bg_color                                = #FFF6BF
+!notice_border_color                            = #FFD324
+                                                
+!highlight_color                                = #FF0
+!added_color                                    = #FFF
+!added_bg_color                                 = #060
+!removed_color                                  = #FFF
+!removed_bg_color                               = #900
 
-!link_quiet_color            = #aaa
-!link_quiet_hover_color      = !link_quiet_color - #222
+!blueprint_table_header_color                   = #C3D9FF
+!blueprint_table_stripe_color                   = #E5ECF9
 
-
-
-!feedback_border_color = #DDD
-
-!success_color         = #264409
-!success_bg_color      = #E6EFC2
-!success_border_color  = #C6D880
-
-!notice_color          = #514721
-!notice_bg_color       = #FFF6BF
-!notice_border_color   = #FFD324
-
-
-
-!error_color                = #cc0000
-!error_bg_color             = #fee
-!error_border_color         = !error_color - #222
-!error_field_border_color   = !error_color - #222
-!error_field_bg_color       = #fcc
-
-!error_color                = #cc0055
-!error_bg_color             = #FFddEE
-!error_border_color         = !error_color - #222
-!error_field_border_color   = !error_color - #222
-!error_field_bg_color       = #FFddEE
-
-!highlight_color       = #FF0
-!added_color           = #FFF
-!added_bg_color        = #060
-!removed_color         = #FFF
-!removed_bg_color      = #900
-
-!blueprint_table_header_color = #C3D9FF
-!blueprint_table_stripe_color = #E5ECF9
-
-!odd_row_color = !link_color + #f5f5f5
-//#EFFCFF
-!even_row_color = !link_color + #fff
-//#DFECFF
+!odd_row_color                                  = !lighter_grey
+!even_row_color                                 = !light_color
+!row_hover_color                                = !light_grey
 
 
 
-!dark_intersection = #eee
-!table_header_color = #FAFAFA
-!table_footer_color = #FAFAFA
-!table_border_color = !link_color
-//#50BAFF
+!dark_intersection                              = #eee
+!table_header_color                             = #FAFAFA
+!table_footer_color                             = #FAFAFA
+!table_border_color                             = !link_color
