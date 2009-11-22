@@ -2,5 +2,12 @@
   %ul
     %li
       = link_to 'Startseite', root_path, :class => 'selected'
+    
     %li
-      = link_to 'Kontakt', contact_path
+      = link_to 'Aktuelles', posts_path
+    
+    %li
+      = link_to 'Projekte', projects_path
+    
+    %li
+      = link_to 'Kontakt/Impressum', page_path('kontakt')

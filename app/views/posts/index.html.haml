@@ -1,0 +1,7 @@
+#posts-index
+  - for post in @posts
+    .post
+      .title
+        = post.title
+      .body        
+        = truncate(strip_tags(post.body), :length => 300, :omission => '... ' + link_to('weiterlesen', post_path(post)) )

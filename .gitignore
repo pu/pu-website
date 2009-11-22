@@ -13,3 +13,4 @@ features_rcov
 features.txt
 coverage*
 public/assets
+public/stylesheets/*.css

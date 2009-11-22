@@ -1,0 +1,28 @@
+%h1 
+  = "Listing Posts (#{@posts.length})"
+
+%p
+  = link_to 'New Post', new_admin_post_path
+
+.table-listing
+  %table
+    %thead
+      %tr
+        %th Category
+        %th Title
+        %th Permalink
+        %th Created at
+        %th Updates at
+        %th &nbsp;
+
+    - for post in @posts
+      %tr{ :class => cycle('odd', 'even'), :edit_url => edit_admin_post_path(post) }
+        %td= h post.category.name if post.category
+        %td= h post.title
+        %td= h post.permalink
+        %td= h post.created_at
+        %td= h post.updated_at
+      
+        %td
+          = link_to 'Edit', edit_admin_post_path(post)
+          = link_to 'Destroy', admin_post_path(post), :confirm => 'Are you sure?', :method => :delete, :id => "destroy_#{post.id}"

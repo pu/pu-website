@@ -20,6 +20,9 @@ Rails::Initializer.run do |config|
   config.gem 'newrelic_rpm'
   config.gem "simple-navigation", :lib => "simple_navigation"
   
+  config.gem 'warden'
+  config.gem 'devise'
+  
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

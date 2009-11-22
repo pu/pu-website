@@ -12,12 +12,4 @@ module ApplicationHelper
     @revision_string
   end
   
-  def page_title(title = nil)
-    if title == nil
-      @page_title || "#{controller.controller_name}: #{controller.action_name}"
-    else
-      @page_title = title + " | Projekthilfe Uganda e.V."
-    end
-  end
-  
 end

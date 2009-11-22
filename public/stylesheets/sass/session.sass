@@ -1,0 +1,60 @@
+@import blueprint.sass
+@import compass/reset.sass
+@import compass/utilities.sass
+
+// use liquid grids instead of fixed
+// just comment out to use fixed grids
+//@import blueprint/modules/liquid.sass
+
+@import colors
+@import blueprint/modules/buttons
+@import error_messages
+
+
+// explicitly call blueprint mixins
++blueprint-typography
++blueprint-utilities
+//+blueprint-grid
++blueprint-form
++blueprint-debug
++blueprint-interaction
+
+
+// Remove the scaffolding when you're ready to start doing visual design.
+// Or leave it in if you're happy with how blueprint looks out-of-the-box
+//+blueprint-scaffolding
+
+#container
+  +container
+
+  #content
+    +column(12, true)
+    +push-margins(6)
+    :background #eee
+    :margin 
+      :top 15px
+    :padding
+      :top 15px
+    
+    #logo
+      +column(8, true)
+      +push-margins(2)
+      :text-align center
+      
+    br
+      :clear both
+    
+    h1
+      :font-size 16px
+      :font-weight bold
+    
+    #form
+      +column(8, true)
+      +push-margins(2)
+      :margin-top 5px
+      
+      +error_messages
+        
+      #helper_links
+        :margin 15px 0 0 0
+        :text-align center

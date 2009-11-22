@@ -1,0 +1,41 @@
+!blueprint_grid_columns = 24
+!blueprint_grid_width = 30px
+!blueprint_grid_margin = 10px
+
+
+@import compass/reset.sass
+@import compass/layout.sass
+@import compass/utilities.sass
+@import compass/utilities/text/replacement.sass
+@import compass/utilities/lists/horizontal_list.sass
+
+@import blueprint.sass
+@import blueprint/screen.sass
+@import blueprint/modules/grid.sass
+@import blueprint/modules/buttons.sass
+@import blueprint/modules/fancy_type
+
++blueprint-typography
+
+h1, h2, h3, h4, h5, h6
+  :color inherit
+  
+  
+=box-height(!factor)
+  :height = (140px*!factor)
+  
+=box
+  +span(8)
+  :height 140px
+  :margin 0px
+  
+=box-border
+  :border-bottom 10px solid white
+  
+=light-theme
+  :color = !dark_color
+  :background-color = !light_color - #1a1a1a
+
+=dark-theme
+  :color = !light_color
+  :background-color = !dark_color

@@ -19,7 +19,7 @@
       #header
         
         #logo
-          = link_to(image_tag("logo-small.png", :alt => "#{APP_CONFIG[:site_name]}"), admin_path, :title => "#{APP_CONFIG[:site_name]}" )
+          = link_to(image_tag("admin/logo-small.png", :alt => "#{APP_CONFIG[:site_name]}"), admin_path, :title => "#{APP_CONFIG[:site_name]}" )
         
         = render :partial => 'admin/layouts/login_box'
         

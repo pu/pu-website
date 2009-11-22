@@ -1,0 +1,47 @@
+=field-with-errors
+  .fieldWithErrors 
+    input, select, textarea 
+      :border-color= !error_field_border_color
+      :background-color= !error_field_bg_color
+      &[disabled]
+        :background = !error_field_bg_color
+
+=error_messages
+  #errorExplanation 
+    :background= !error_bg_color
+    :border= 1px solid !error_border_color
+    :margin
+      :bottom 15px
+  
+    h2 
+      // Safari
+     
+      :padding 5px 10px
+      :margin 0
+      :color= !error_color
+      :font-size 1em
+      :text-transform uppercase
+      //:font-weight bold
+  
+
+    p
+      :color= !error_color
+      :padding 0 10px .8em 10px
+    
+    ul
+      :padding 0 10px 5px 10px
+      :margin 0 10px 0 0
+      +no-bullets
+    
+      li 
+        #:background transparent url("/images/li_error.gif") 0 85% no-repeat
+        :padding 0 0 0 1.5em
+        :color= !error_color
+        :margin 0 0 2px 0
+
+=ajax-errors
+  &.errors
+    input[type=text],
+    input[type=password]
+      :border 1px solid #cc3333
+      :padding 4px

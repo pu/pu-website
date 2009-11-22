@@ -22,14 +22,17 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Define the primary navigation
   navigation.items do |primary|
-    primary.item :dashboard, 'Dashboard', admin_dashboard_path
+    primary.item :dashboard, 'Dashboard', admin_path
     primary.item :pages, 'Pages', admin_pages_path
-    primary.item :users, 'Users', admin_users_path
+    primary.item :pages, 'Posts', admin_posts_path
+    primary.item :pages, 'Projects', admin_posts_path
+    
+    #primary.item :users, 'Users', admin_users_path
     
     # you can also specify a css id or class to attach to this particular level
     # works for all levels of the menu
     # primary.dom_id = 'menu-id'
-    # primary.dom_class = 'menu-class'
+    primary.dom_class = 'sf-menu'
     
     # You can turn off auto highlighting for a specific level
     # primary.auto_highlight = false

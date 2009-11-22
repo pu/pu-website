@@ -4,9 +4,6 @@ class Admin::PagesController < ApplicationController
   
   layout 'admin'
   
-  filter_access_to :all, :require => :manage
-  #filter_access_to :preview, :require => :create
-    
   def index
     @pages = Page.find(:all)
 
@@ -61,11 +58,15 @@ class Admin::PagesController < ApplicationController
 
   def destroy
     @page = Page.find(params[:id])
-    @page.destroy
+    
+    if @page.destroy
+      flash[:success] = "Page was successfully deleted."
+    else
+      flash[:error] = "Page was not deleted."
+    end
 
     respond_to do |format|
       format.html { redirect_to admin_pages_path }
-      format.xml  { head :ok }
     end
   end
   

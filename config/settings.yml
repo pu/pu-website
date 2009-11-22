@@ -1,29 +1,29 @@
 development: &non_production_settings
   host: uganda.local
   site_url: http://uganda.local
-  site_name: uganda.com - development
-  admin_email: admin@uganda.com
-  support_email: support@uganda.com
-  feedback_email: feedback@uganda.com
-  system_mailer: no-reply@uganda.com
+  site_name: projekthilfe-uganda.de - development
+  admin_email: admin@projekthilfe-uganda.de
+  support_email: support@projekthilfe-uganda.de
+  feedback_email: feedback@projekthilfe-uganda.de
+  system_mailer: no-reply@projekthilfe-uganda.de
   
 test:
   <<: *non_production_settings
 
 staging:
-  host: staging.uganda.com
-  site_url: http://staging.uganda.com
-  site_name: uganda.com - staging
-  admin_email: admin@uganda.com
-  support_email: support@uganda.com
-  feedback_email: feedback@uganda.com
-  system_mailer: no-reply@uganda.com
+  host: staging.projekthilfe-uganda.de
+  site_url: http://staging.projekthilfe-uganda.de
+  site_name: projekthilfe-uganda.de - staging
+  admin_email: admin@projekthilfe-uganda.de
+  support_email: support@projekthilfe-uganda.de
+  feedback_email: feedback@projekthilfe-uganda.de
+  system_mailer: no-reply@projekthilfe-uganda.de
   
 production:
-  host: www.uganda.com
-  site_url: http://www.uganda.com
-  site_name: uganda.com
-  admin_email: admin@uganda.com
-  support_email: support@uganda.com
-  feedback_email: feedback@uganda.com
-  system_mailer: no-reply@uganda.com
+  host: www.projekthilfe-uganda.de
+  site_url: http://www.projekthilfe-uganda.de
+  site_name: projekthilfe-uganda.de
+  admin_email: admin@projekthilfe-uganda.de
+  support_email: support@projekthilfe-uganda.de
+  feedback_email: feedback@projekthilfe-uganda.de
+  system_mailer: no-reply@projekthilfe-uganda.de

@@ -1,0 +1,224 @@
+@import colors
+
+@import compass/reset.sass
+@import compass/utilities.sass
+
+// use liquid grids instead of fixed
+// just comment out to use fixed grids
+//@import blueprint/modules/liquid.sass
+
+@import blueprint.sass
+@import blueprint/modules/buttons
+@import blueprint/modules/fancy_type
+@import error_messages.sass
+@import mixins.sass
+
+
+// explicitly call blueprint mixins
++blueprint-typography
++blueprint-utilities
+//+blueprint-grid
++blueprint-debug
++blueprint-interaction
++blueprint-form
+
+// overwrite blueprint typography
+h1, h2, h3, h4, h5, h6
+  :color inherit
+
+body
+  :background
+    :color = !dark_color + #111
+  :line-height 1.5
+  :color = !font_color
+  :padding 5px 0 0 0
+  :margin 0
+  :font-family "Lucida Sans Unicode", "Lucida Sans", "Lucida Grande", Helvetica, Verdana, Arial, sans-serif
+  :line-height 1.5em
+  :font-size x-small
+  :voice-family "\"}\""
+  :voice-family inherit
+  :font-size small
+
+  h1
+    :font-size 2em
+  
+  h2
+    :font-size 1.8em
+
+  #container
+    +container
+    
+    a
+      :color = !link_color
+      :text-decoration none
+      
+      &:hover
+        :color = !link_hover_color
+        :text-decoration underline
+        
+    .clear
+      :clear both
+      :font-size 1px
+    
+    #header
+      #logo
+        +column(4)
+        +append(8)
+      
+      #login_box
+        +column(12)
+        :text-align right
+        :margin 0 0 10px 0
+        :color = #fff
+        :font-size .9em
+        
+        a
+          :color = !link_color
+          
+          &:hover
+            :color = !link_color + #222
+      
+      #navigation
+        +column(24)
+        /:margin -30px 0 0 0
+        :font
+          :size 0.9em
+          :weight bold
+        
+        ul.sf-menu
+          :float right
+          
+          a
+            :color #fff
+            
+            &:hover
+              :background-color = !link_color
+              :color = #fff
+                    
+          li
+            +span(3)  
+            :background-color = !font_color
+            
+            &:hover, &.sfHover
+              :outline 0
+              
+            a
+              :padding .75em 1em
+              :text-decoration none              
+                
+              &:hover
+                :outline 0
+          
+            ul
+              li
+                +span(4)
+                :font-weight normal
+
+    #content_outer
+      +column(24, true)
+      :background
+        :color #fff
+      
+      #content
+        +error_messages
+        :margin 10px
+        :min-height 450px
+                
+        .markItUp
+          :margin 0 0 0 140px
+          
+          .markItUpContainer
+            li
+              :border 0 !important
+          
+            .markItUpHeader
+              +self-clearing
+              :padding 10px 0 0 0
+          
+            textarea
+              :width 500px
+              :height 450px
+            
+            .markItUpPreviewFrame
+              :border = 2px solid !light_grey
+              :height auto
+              :padding 5px
+              :width 550px
+          
+        h1
+          :margin
+            :top 20px
+        
+        #comments
+          :margin
+            :top 20px
+                    
+          #ajax-loading
+            :display none
+            :margin
+              :bottom -12px
+                      
+        .pagination
+          :margin 10px
+        
+        .form
+          +ninja-form
+          
+          .description_icon
+            :margin-left 10px
+          ul
+            li
+              +field-with-errors
+                                    
+        .table-listing
+          +table-listing
+          
+          table
+            +alternating-rows-and-columns(!odd_row_color, !even_row_color)
+            :font-size .9em
+            tr
+              :border-bottom 1px solid #000
+              // overwrite blueprint behavior
+              &.odd:hover
+                td
+                  :background-color = !link_color + #ddd
+              
+              &.even:hover
+                td
+                  :background-color = !link_color + #ddd
+              
+              td
+                :vertical-align top
+                
+                &.color_preview
+                  :width 50px
+                
+                &.show-move
+                  :background transparent url(/images/admin/arrow_move.png) no-repeat center center
+                  :cursor move
+              
+              &.dragged
+                td
+                  :background-color = !light_grey !important
+          
+        p.button
+          :background #EEEEEE none repeat scroll 0 0
+          :margin 0.5em 0 0
+          :padding 1em 0.5em 1em 160px
+            
+    #footer
+      +column(24)
+      :height 30px
+      :padding 5px 5px
+      :text-align right
+      :font-size .9em
+      :color = !footer_color
+      
+      a
+        :color = !link_quiet_color
+        &:hover
+          :color = !link_quiet_hover_color
+
+      ul
+        +horizontal-list(5px)
