@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :schools, :path_prefix => "verwaltung", :as => "schulen"
   map.resources :letters, :path_prefix => "verwaltung", :as => "kinderbriefe"
 
+  map.letter_received "/verwaltung/kinder/brief_erhalten/:letter_id", :controller => 'kids', :action => "toggle_letter_received"
 
   map.resources :posts, :as => 'aktuelles'
   map.resources :projects, :as => "projekte", :controller => 'posts'

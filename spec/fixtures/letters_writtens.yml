@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  kid_id: 1
+  letter_id: 1
+  received: false
+
+two:
+  kid_id: 1
+  letter_id: 1
+  received: false

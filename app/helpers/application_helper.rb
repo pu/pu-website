@@ -12,4 +12,8 @@ module ApplicationHelper
     @revision_string
   end
   
+  def boolean_icon_path( b )
+    b ? "/images/admin/success.gif" : "/images/admin/error.gif"
+  end
+  
 end
