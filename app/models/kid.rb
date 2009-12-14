@@ -16,7 +16,7 @@ class Kid < ActiveRecord::Base
 
  validates_attachment_size :picture, :less_than => 2.megabyte, :message => "Dein Bild kann höchstens 2 MB gross sein"
 
- validates_uniqueness_of :number
+ validates_uniqueness_of :number, :message => "Diese Nummer ist bereits vergeben"
  
- validates_presence_of :firstname, :name, :number
+ validates_presence_of :firstname, :name, :number, :message => " darf nicht leer sein"
 end
