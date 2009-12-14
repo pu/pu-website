@@ -44,4 +44,13 @@ class KidsController < ApplicationController
     flash[:notice] = "Successfully destroyed kid."
     redirect_to kids_url
   end
+  
+  def toggle_letter_received
+    letter_id = params[:letter_id]
+    if letter = LettersWritten.find(letter_id)
+      letter.update_attribute(:received, !letter.received)
+    end
+    
+    redirect_to :action => "index"
+  end
 end
