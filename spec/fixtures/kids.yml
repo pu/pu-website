@@ -1,0 +1,15 @@
+one:
+  name: MyString
+  firstname: MyString
+  birthday: 2009-12-10 16:31:28
+  description: MyText
+  number: 1
+  sponsored_until: 2009-12-10 16:31:28
+
+two:
+  name: MyString
+  firstname: MyString
+  birthday: 2009-12-10 16:31:28
+  description: MyText
+  number: 1
+  sponsored_until: 2009-12-10 16:31:28

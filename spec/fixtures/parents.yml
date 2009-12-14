@@ -1,0 +1,13 @@
+one:
+  name: 
+  firstname: MyString
+  street: MyString
+  zip_code: MyString
+  town: MyString
+
+two:
+  name: 
+  firstname: MyString
+  street: MyString
+  zip_code: MyString
+  town: MyString

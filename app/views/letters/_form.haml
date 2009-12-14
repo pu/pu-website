@@ -1,0 +1,12 @@
+- form_for @letter do |f|
+  = f.error_messages
+  %p
+    = f.label :name, "Titel"
+    %br
+    = f.text_field :name
+  %p
+    = f.label :due_date, "Wann fällig?"
+    %br
+    = f.date_select :due_date, :order => [:day, :month, :year]
+  %p
+    = f.submit "Speichern"

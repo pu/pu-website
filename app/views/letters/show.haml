@@ -1,0 +1,15 @@
+- title "Brief"
+%p
+  %strong
+    Titel:
+  = h @letter.name
+%p
+  %strong
+    Fällig:
+  = h @letter.due_date
+%p
+  = link_to "Bearbeiten", edit_letter_path(@letter)
+  |
+  = link_to "Löschen", @letter, :confirm => 'Brief wirklich löschen?', :method => :delete
+  |
+  = link_to "Übersicht Brief", letters_path

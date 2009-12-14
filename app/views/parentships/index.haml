@@ -1,0 +1,53 @@
+- title "Parentships"
+%table
+  %tr
+    %th
+      Bild
+    %th
+      Vorname
+    %th
+      Name
+    %th
+      Nr. 
+    %th
+      Pate
+    %th 
+      Pate
+    %th
+      Beginn
+    %th
+      Ende
+    %th
+      Beitrag
+    %th
+      Zahlweise
+  - for parentship in @parentships
+    %tr
+      %td 
+        = image_tag parentship.kid.picture.url(:thumb)
+      %td
+        = h parentship.kid.firstname
+      %td
+        = h parentship.kid.name
+      %td
+        = h parentship.kid.number
+      %td
+        = h parentship.parent.firstname      
+      %td
+        = h parentship.parent.name
+      %td
+        = h parentship.starts_at
+      %td
+        = h parentship.expires_at
+      %td
+        = h parentship.fee
+      %td
+        = h parentship.paying_period
+      %td
+        = link_to "Anzeigen", parentship
+      %td
+        = link_to "Bearbeiten", edit_parentship_path(parentship)
+      %td
+        = link_to "Löschen", parentship, :confirm => 'Diese Patenschaft wirklich löschen?', :method => :delete
+  %p
+    = link_to "Neue Patenschaft", new_parentship_path

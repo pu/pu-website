@@ -1,0 +1,22 @@
+- title "Briefe"
+%p
+  = link_to "Neuer Brief", new_letter_path
+
+%table
+  %tr
+    %th
+      Titel
+    %th
+      Fällig
+  - for letter in @letters
+    %tr
+      %td
+        = h letter.name
+      %td
+        = h letter.due_date
+      %td
+        = link_to "Anzeigen", letter
+      %td
+        = link_to "Bearbeiten", edit_letter_path(letter)
+      %td
+        = link_to "Löschen", letter, :confirm => 'Diesen Brief wirklich löschen?', :method => :delete

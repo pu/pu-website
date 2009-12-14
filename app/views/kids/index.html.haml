@@ -1,0 +1,41 @@
+- title "Kinder"
+%p
+  = link_to "Neues Kind", new_kid_path
+  
+%table
+  %tr
+    %th Nummer
+    %th Bild
+    %th Vorname
+    %th Name    
+    %th Geburtstag
+    %th Beschreibung
+
+    %th Betreuung bis
+    %th Schule
+  - for kid in @kids
+    %tr
+      %td
+        = h kid.number
+      %td
+        = image_tag kid.picture.url(:thumb)
+      %td
+        = h kid.firstname
+      %td
+        = h kid.name
+      %td
+        = h kid.birthday
+      %td
+        = h kid.description
+      %td
+        = h kid.sponsored_until
+      %td
+        = h kid.school.name if kid.school
+      %td
+        = link_to 'Anzeigen', kid
+      %td
+        = link_to 'Bearbeiten', edit_kid_path(kid)
+      %td
+        = link_to 'Löschen', kid, :confirm => 'Dieses Kind wirklich löschen?', :method => :delete
+
+

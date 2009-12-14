@@ -1,0 +1,15 @@
+one:
+  kid_id: 1
+  parent_id: 1
+  expires_at: 2009-12-10
+  starts_at: 2009-12-10
+  fee: 1
+  paying_period: MyString
+
+two:
+  kid_id: 1
+  parent_id: 1
+  expires_at: 2009-12-10
+  starts_at: 2009-12-10
+  fee: 1
+  paying_period: MyString

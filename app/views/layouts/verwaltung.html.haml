@@ -1,0 +1,26 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type" }
+    
+    %title= "#{page_title}"
+    
+    = stylesheet_link_merged :base, :media => :screen    
+    
+    = javascript_include_merged :base  
+
+    = yield_authenticity_token
+    
+    
+  %body
+    #application
+      = render :partial => 'layouts/header'
+      
+      = render :partial => 'layouts/teaser'
+      
+      #menu
+        = render :partial => 'layouts/verwaltungs_navigation'
+      
+      = yield
+    
+    = render :partial => 'layouts/footer'

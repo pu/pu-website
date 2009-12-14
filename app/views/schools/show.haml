@@ -1,0 +1,11 @@
+- title "Schule"
+%p
+  %strong
+    Name:
+  = h @school.name
+%p
+  = link_to "Bearbeiten", edit_school_path(@school)
+  |
+  = link_to "Löschen", @school, :confirm => 'Diese Schule wirklich löschen?', :method => :delete
+  |
+  = link_to "Übersicht Schulen", schools_path

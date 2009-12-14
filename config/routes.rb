@@ -1,5 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
 
+  map.resources :parentships, :path_prefix => "verwaltung", :as => "patenschaften"  
+  map.resources :kids, :path_prefix => "verwaltung", :as => "kinder"
+  map.resources :parents, :path_prefix => "verwaltung", :as => "paten"
+  map.resources :schools, :path_prefix => "verwaltung", :as => "schulen"
+  map.resources :letters, :path_prefix => "verwaltung", :as => "kinderbriefe"
+
+
   map.resources :posts, :as => 'aktuelles'
   map.resources :projects, :as => "projekte", :controller => 'posts'
   map.resources :pages

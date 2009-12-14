@@ -1,0 +1,28 @@
+- title "Kind"
+%p
+  = image_tag @kid.picture.url(:profile)
+%p
+  %strong Nummer:
+  =h @kid.number
+%p
+  %strong Vorname:
+  =h @kid.firstname
+%p
+  %strong Name:
+  =h @kid.name
+%p
+  %strong Geburtstag:
+  =h @kid.birthday
+%p
+  %strong Description:
+  =h @kid.description
+%p
+  %strong Betreuung bis:
+  =h @kid.sponsored_until
+
+%p
+  = link_to "Bearbeiten", edit_kid_path(@kid)
+  |
+  = link_to "Löschen", @kid, :confirm => 'Dieses Kind wirklich löschen?', :method => :delete
+  |
+  = link_to "Übersicht Kinder", kids_path

@@ -1,0 +1,27 @@
+- title "Parent"
+%p
+  %strong
+    Name:
+  = h @parent.name
+%p
+  %strong
+    Firstname:
+  = h @parent.firstname
+%p
+  %strong
+    Street:
+  = h @parent.street
+%p
+  %strong
+    Zip Code:
+  = h @parent.zip_code
+%p
+  %strong
+    Town:
+  = h @parent.town
+%p
+  = link_to "Berbeiten", edit_parent_path(@parent)
+  |
+  = link_to "Löschen", @parent, :confirm => 'Diesen Paten wirklich löschen?', :method => :delete
+  |
+  = link_to "Übersicht Paten", parents_path
