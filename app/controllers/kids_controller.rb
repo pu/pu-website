@@ -12,6 +12,7 @@ class KidsController < ApplicationController
   
   def new
     @kid = Kid.new
+    @kid.number = (Kid.maximum(:number) || 0) + 1
   end
   
   def create
