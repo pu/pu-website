@@ -2,47 +2,46 @@
 %p
   = link_to "Neues Kind", new_kid_path
   
-%table
-  %tr
-    %th Nummer
-    %th Bild
-    %th Vorname
-    %th Name    
-    %th Geburtstag
-    %th Beschreibung
-
-    %th Betreuung bis
-    %th Schule
-    - for l in Letter.recent(2)
-      %th
-        = l.name
-  - for kid in @kids
-    %tr
-      %td
-        = h kid.number
-      %td
-        = image_tag kid.picture.url(:thumb)
-      %td
-        = h kid.firstname
-      %td
-        = h kid.name
-      %td
-        = h kid.birthday
-      %td
-        = h kid.description
-      %td
-        = h kid.sponsored_until
-      %td
-        = h kid.school.name if kid.school
-      - for l in kid.recent_letters_written
+%table.tablesorter
+  %thead 
+    %tr 
+      %th.header Nummer
+      %th.header Bild
+      %th.header Vorname
+      %th.header Name    
+      %th.header Geburtstag
+      %th.header Beschreibung
+      %th.header Betreuung bis
+      %th.header Schule
+      - for l in Letter.recent(2)
+        %th.header
+          = l.name
+  %tbody
+    - for kid in @kids
+      %tr
         %td
-          = image_tag boolean_icon_path(l.received?)
-          = link_to l.received? ? 'Da' : 'Fehlt', letter_received_path(l.id), :method => :put
-      %td
-        = link_to 'Anzeigen', kid
-      %td
-        = link_to 'Bearbeiten', edit_kid_path(kid)
-      %td
-        = link_to 'Löschen', kid, :confirm => 'Dieses Kind wirklich löschen?', :method => :delete
-
-
+          = h kid.number
+        %td
+          = image_tag kid.picture.url(:thumb)
+        %td
+          = h kid.firstname
+        %td
+          = h kid.name
+        %td
+          = h kid.birthday
+        %td
+          = h kid.description
+        %td
+          = h kid.sponsored_until
+        %td
+          = h kid.school.name if kid.school
+        - for l in kid.recent_letters_written
+          %td
+            = image_tag boolean_icon_path(l.received?)
+            = link_to l.received? ? 'Da' : 'Fehlt', letter_received_path(l.id), :method => :put
+        %td
+          = link_to 'Anzeigen', kid
+        %td
+          = link_to 'Bearbeiten', edit_kid_path(kid)
+        %td
+          = link_to 'Löschen', kid, :confirm => 'Dieses Kind wirklich löschen?', :method => :delete

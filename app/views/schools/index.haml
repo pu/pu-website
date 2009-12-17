@@ -1,17 +1,19 @@
 - title "Schulen"
 %p
   = link_to "Neue Schule", new_school_path
-%table
-  %tr
-    %th
-      Name
-  - for school in @schools
+%table.tablesorter
+  %thead
     %tr
-      %td
-        = h school.name
-      %td
-        = link_to "Anzeigen", school
-      %td
-        = link_to "Bearbeiten", edit_school_path(school)
-      %td
-        = link_to "Löschen", school, :confirm => 'Diese Schule wirkich löschen?', :method => :delete
+      %th
+        Name
+  %tbody
+    - for school in @schools
+      %tr
+        %td
+          = h school.name
+        %td
+          = link_to "Anzeigen", school
+        %td
+          = link_to "Bearbeiten", edit_school_path(school)
+        %td
+          = link_to "Löschen", school, :confirm => 'Diese Schule wirkich löschen?', :method => :delete

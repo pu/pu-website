@@ -2,7 +2,7 @@ development:
   adapter: mysql
   database: uganda_development
   username: root
-  password: root
+  password: 
   host: localhost
   encoding: utf8
   
@@ -10,7 +10,7 @@ test:
   adapter: mysql
   database: uganda_test
   username: root
-  password: root
+  password: 
   host: localhost
   encoding: utf8
   

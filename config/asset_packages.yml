@@ -1,9 +1,10 @@
 --- 
 javascripts: 
-- base: 
+- base:
   - jquery-1.3.2.min
   - jquery-ui-1.7.2.custom.min
   - jquery_rails_ujs_helper
+  - jquery.tablesorter.min
   - application
 
 - admin_base:
@@ -21,6 +22,7 @@ stylesheets:
 - base:
   - application
   - plugins/jquery.lightbox-0.5.css
+  - tablesorter/tablesorter.css
 - base_ie:
   - ie
 - base_print:

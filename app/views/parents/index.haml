@@ -1,38 +1,40 @@
 - title "Paten"
 %p
   = link_to "Neuer Pate", new_parent_path
-%table
-  %tr
-    %th
-      Vorname
-    %th
-      Name
-    %th
-      Strasse
-    %th
-      PLZ
-    %th
-      Ort
-    %th
-      Anzahl Kinder
-  - for parent in @parents
+%table.tablesorter
+  %thead
     %tr
-      %td
-        = h parent.firstname
-      %td
-        = h parent.name
-      %td
-        = h parent.street
-      %td
-        = h parent.zip_code
-      %td
-        = h parent.town
-      %td
-        = h parent.kids.size  
-      %td
-        = link_to "Anzeigen", parent
-      %td
-        = link_to "Bearbeiten", edit_parent_path(parent)
-      %td
-        = link_to "Löschen", parent, :confirm => 'Diesen Paten wirklich löschen?', :method => :delete
+      %th
+        Vorname
+      %th
+        Name
+      %th
+        Strasse
+      %th
+        PLZ
+      %th
+        Ort
+      %th
+        Anzahl Kinder
+    %tbody
+      - for parent in @parents
+        %tr
+          %td
+            = h parent.firstname
+          %td
+            = h parent.name
+          %td
+            = h parent.street
+          %td
+            = h parent.zip_code
+          %td
+            = h parent.town
+          %td
+            = h parent.kids.size  
+          %td
+            = link_to "Anzeigen", parent
+          %td
+            = link_to "Bearbeiten", edit_parent_path(parent)
+          %td
+            = link_to "Löschen", parent, :confirm => 'Diesen Paten wirklich löschen?', :method => :delete
 
