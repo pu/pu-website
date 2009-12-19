@@ -16,7 +16,7 @@ class Kid < ActiveRecord::Base
 
  validates_attachment_content_type :picture, :content_type => ["image/bmp", "image/jpeg", "image/pjpeg", "image/jpg", "image/pjpg", "image/png", "image/x-png", "image/gif"], :message => "Du kannst hier nur Bilder (GIF, JPEG oder PNG) hochladen"
 
- validates_attachment_size :picture, :less_than => 2.megabyte, :message => "Dein Bild kann höchstens 2 MB gross sein"
+ validates_attachment_size :picture, :less_than => 4.megabyte, :message => "Das Bild kann höchstens 4 MB gross sein"
 
  validates_uniqueness_of :number, :message => "Diese Nummer ist bereits vergeben"
  
