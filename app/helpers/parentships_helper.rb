@@ -5,7 +5,7 @@ module ParentshipsHelper
   end
 
   def parents_select_for_parentship
-    Parent.find(:all).collect{ |p| ["#{p.firstname} #{p.name}", p.id] }
+    Parent.find(:all).collect{ |p| ["#{p.name} #{p.firstname}", p.id] }
   end
 
 end
