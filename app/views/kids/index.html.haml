@@ -11,9 +11,8 @@
       %th.header Name    
       %th.header Geburtstag
       %th.header Beschreibung
-      %th.header Betreuung bis
       %th.header Schule
-      - for l in Letter.recent(2)
+      - for l in Letter.recent(4)
         %th.header
           = l.name
   %tbody
@@ -31,8 +30,6 @@
           = h kid.birthday
         %td
           = h kid.description
-        %td
-          = h kid.sponsored_until
         %td
           = h kid.school.name if kid.school
         - for l in kid.recent_letters_written
