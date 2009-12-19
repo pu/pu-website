@@ -15,6 +15,10 @@
     %br
     = f.text_field :name
   %p
+    = f.label :town, "Ort"
+    %br
+    = f.text_field :town
+  %p
     = f.label :birthday, "Geburtstag"
     %br
     = f.date_select :birthday, :start_year => (Time.now.year - 20), :end_year => (Time.now.year), :order => [:day, :month, :year], :include_blank => "--"
