@@ -2,11 +2,13 @@
 %p
   %strong
     Kind:
-  = h @parentships.kid_id
+  = h @parentships.kid.firstname
+  = h @parentships.kid.name
 %p
   %strong
     Pate:
-  = h @parentships.parent_id
+  = h @parentships.parent.firstname    
+  = h @parentships.parent.name
 %p
   %strong
     Beginn:
