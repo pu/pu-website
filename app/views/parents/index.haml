@@ -17,6 +17,8 @@
       %th
         E-Mail
       %th
+        Status
+      %th
         Anzahl Kinder
     %tbody
       - for parent in @parents
@@ -33,6 +35,8 @@
             = h parent.town
           %td
             = h parent.email
+          %td
+            = h parent.status
           %td
             = h parent.kids.size  
           %td
