@@ -21,7 +21,7 @@
   %p
     = f.label :birthday, "Geburtstag"
     %br
-    = f.date_select :birthday, :start_year => (Time.now.year - 20), :end_year => (Time.now.year), :order => [:day, :month, :year], :include_blank => "--"
+    = f.date_select :birthday, :start_year => (Time.now.year - 25), :end_year => (Time.now.year), :order => [:day, :month, :year], :include_blank => "--"
   %p
     = f.label :description, "Beschreibung"
     %br
