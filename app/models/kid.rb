@@ -4,7 +4,8 @@ class Kid < ActiveRecord::Base
   has_many :parentships, :dependent => :destroy  
   has_many :parents, :through => :parentships
   
-  belongs_to :school
+  has_one :school, :through => :school_visit
+  has_one :school_visit
   
   has_many :letters_written
   
