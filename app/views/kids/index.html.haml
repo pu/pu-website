@@ -29,7 +29,7 @@
         %td
           = h kid.birthday
         %td
-          = h kid.description
+          = h truncate(kid.description, 60, "...")
         %td
           = h kid.school.name if kid.school
         - for l in kid.recent_letters_written
