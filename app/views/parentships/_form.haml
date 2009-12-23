@@ -11,11 +11,11 @@
   %p
     = f.label :starts_at, "Start"
     %br
-    = f.date_select :starts_at
+    = f.date_select :starts_at, :order => [:month, :year]
   %p
     = f.label :expires_at, "Ende"
     %br
-    = f.date_select :expires_at
+    = f.date_select :expires_at, :order => [:month, :year]
   %p
     = f.label :fee, "Beitrag"
     %br
