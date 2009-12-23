@@ -15,7 +15,7 @@ class ParentsController < ApplicationController
   end
   
   def create
-    @parent = Parent.new(params[:parent])
+    @parent = Parent.new(params[:parent], :status => "active")
     if @parent.save
       flash[:notice] = "Successfully created parent."
       redirect_to @parent
@@ -40,7 +40,7 @@ class ParentsController < ApplicationController
   
   def destroy
     @parent = Parent.find(params[:id])
-    @parent.destroy
+    @parent.update_attribute(:status, "deleted")
     flash[:notice] = "Successfully destroyed parent."
     redirect_to parents_url
   end

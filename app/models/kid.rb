@@ -1,7 +1,7 @@
 class Kid < ActiveRecord::Base
   attr_accessible :name, :firstname, :birthday, :description, :number, :sponsored_until, :picture, :school_id
 
-  has_many :parentships, :dependent => :destroy  
+  has_many :parentships
   has_many :parents, :through => :parentships
   
   has_one :school, :through => :school_visit

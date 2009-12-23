@@ -16,7 +16,7 @@ class KidsController < ApplicationController
   end
   
   def create
-    @kid = Kid.new(params[:kid])
+    @kid = Kid.new(params[:kid], :status => "active")
     if @kid.save
       flash[:notice] = "Successfully created kid."
       redirect_to @kid
@@ -41,7 +41,7 @@ class KidsController < ApplicationController
   
   def destroy
     @kid = Kid.find(params[:id])
-    @kid.destroy
+    @kid.update_attribute(:status, "deleted")
     flash[:notice] = "Successfully destroyed kid."
     redirect_to kids_url
   end
