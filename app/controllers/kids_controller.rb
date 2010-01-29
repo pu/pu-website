@@ -1,5 +1,7 @@
 class KidsController < ApplicationController
   
+  before_filter :require_user
+  
   layout 'verwaltung'
 
   def index

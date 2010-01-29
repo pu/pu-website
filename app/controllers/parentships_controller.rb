@@ -1,5 +1,7 @@
 class ParentshipsController < ApplicationController
 
+  before_filter :require_user
+  
   layout 'verwaltung'
   
   def index

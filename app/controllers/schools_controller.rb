@@ -1,5 +1,7 @@
 class SchoolsController < ApplicationController
 
+  before_filter :require_user
+  
   layout 'verwaltung'
   
   def index
