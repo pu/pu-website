@@ -29,3 +29,11 @@ production:
   system_mailer: no-reply@projekthilfe-uganda.de
 
 migration:
+  host: www.projekthilfe-uganda.de
+  site_url: http://www.projekthilfe-uganda.de
+  site_name: projekthilfe-uganda.de
+  admin_email: admin@projekthilfe-uganda.de
+  support_email: support@projekthilfe-uganda.de
+  feedback_email: feedback@projekthilfe-uganda.de
+  system_mailer: no-reply@projekthilfe-uganda.de
+
