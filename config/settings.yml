@@ -6,7 +6,7 @@ development: &non_production_settings
   support_email: support@projekthilfe-uganda.de
   feedback_email: feedback@projekthilfe-uganda.de
   system_mailer: no-reply@projekthilfe-uganda.de
-  
+
 test:
   <<: *non_production_settings
 
@@ -18,7 +18,7 @@ staging:
   support_email: support@projekthilfe-uganda.de
   feedback_email: feedback@projekthilfe-uganda.de
   system_mailer: no-reply@projekthilfe-uganda.de
-  
+
 production:
   host: www.projekthilfe-uganda.de
   site_url: http://www.projekthilfe-uganda.de
@@ -27,3 +27,5 @@ production:
   support_email: support@projekthilfe-uganda.de
   feedback_email: feedback@projekthilfe-uganda.de
   system_mailer: no-reply@projekthilfe-uganda.de
+
+migration:
