@@ -1,4 +1,5 @@
 class Admin::DashboardsController < ApplicationController
+  
   before_filter :require_user
   
   layout 'admin'

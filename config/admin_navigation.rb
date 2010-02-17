@@ -10,7 +10,7 @@ SimpleNavigation::Configuration.run do |navigation|
   # Normally only the current sub menu is renderedwhen render_navigation is called
   # setting this to true render all submenus which is useful for javascript
   # driven hovering menus like the jquery superfish plugin
-  # navigation.render_all_levels = true
+  navigation.render_all_levels = true
   
   # Item keys are normally added to list items as id.
   # This setting turns that off
@@ -25,6 +25,22 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :dashboard, 'Dashboard', admin_path
     primary.item :pages, 'Pages', admin_pages_path
     primary.item :posts, 'Posts', admin_posts_path
+
+    # primary.item :kids, 'Kids', kids_path
+    # primary.item :sponsors, 'Sponsors', parents_path
+    # primary.item :sponsorships, 'Sponsorships', parentships_path
+    # primary.item :schools, 'Schools', schools_path
+    # primary.item :parents, 'Letter', letters_path
+    
+    
+    primary.item :administration, 'Administration', '#' do |secondary|
+      secondary.item :kids, 'Kids', kids_path
+      secondary.item :sponsors, 'Sponsors', parents_path
+      secondary.item :sponsorships, 'Sponsorships', parentships_path
+      secondary.item :schools, 'Schools', schools_path
+      secondary.item :parents, 'Letter', letters_path
+    end 
+    
     # primary.item :users, 'Users', admin_users_path
     
     # you can also specify a css id or class to attach to this particular level

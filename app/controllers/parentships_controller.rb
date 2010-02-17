@@ -2,7 +2,8 @@ class ParentshipsController < ApplicationController
 
   before_filter :require_user
   
-  layout 'verwaltung'
+  layout 'admin'
+  # layout 'verwaltung'
   
   def index
     @parentships = Parentship.all

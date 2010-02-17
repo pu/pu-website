@@ -8,20 +8,20 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   
-  config.gem 'mysql'  
-  config.gem 'RedCloth'
-  config.gem 'norman-friendly_id', :lib => 'friendly_id', :source => 'http://gems.github.com'
-  config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => 'http://gems.github.com'
-  config.gem 'pluginaweek-state_machine', :lib => 'state_machine', :source => 'http://gems.github.com'
-  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com', :version => '~> 2.3.11'
-  config.gem 'searchlogic'
-  config.gem 'haml'
-  config.gem 'chriseppstein-compass', :lib => 'compass', :source => 'http://gems.github.com'
-  config.gem 'newrelic_rpm'
-  config.gem "simple-navigation", :lib => "simple_navigation"
+  config.gem 'mysql', :version => '>= 2.8'
+  config.gem 'RedCloth', :version => '>= 4.2.2'
+  config.gem 'friendly_id', :version => '>= 2.3.1'
+  config.gem 'paperclip', :version => '>= 2.3.1'
+  #config.gem 'pluginaweek-state_machine', :lib => 'state_machine', :source => 'http://gems.github.com'
+  config.gem 'will_paginate', :version => '>= 2.3.11'
+  config.gem 'searchlogic', :version => '2.3.9'
+  config.gem 'haml', :version => '2.2.19'
+  config.gem 'compass', :version => '>= 0.8.17'
+  config.gem 'newrelic_rpm', :version => '>= 2.9.9'
+  config.gem "simple-navigation", :lib => "simple_navigation", :version => '>= 2.0.1'
   
-  config.gem 'warden'
-  config.gem 'devise'
+  config.gem 'warden', :version => '>= 0.5.2'
+  config.gem 'devise', :version => '>= 0.5.0'
   
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
