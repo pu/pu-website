@@ -1,7 +1,17 @@
-#posts-index
-  - for post in @posts
-    .post
-      .title
-        = post.title
-      .body        
-        = truncate(strip_tags(post.body), :length => 300, :omission => '... ' + link_to('weiterlesen', post_path(post)) )
+
+#content
+  %h1
+    = "Übersicht #{@posts.first.category.name}"
+
+  #posts-index
+    - for post in @posts
+      .post
+        %h2.title
+          = link_to post.title, (post.category.name == 'Aktuelles' ? post_path(post) : project_path(post) )
+          
+        .body
+          = truncate(strip_tags(post.body), :length => 300, :omission => '... ')
+          
+          %br
+          .read-more
+            = link_to('weiterlesen', post_path(post))

@@ -27,7 +27,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :projects, 'Projekte', projects_path
     
     primary.item :contact, 'Kontakt/Impressum', page_path('kontakt') 
-    primary.item :donate, 'Spenden', page_path('spenden') 
+    # primary.item :donate, 'Spenden', page_path('spenden') 
     
     # you can also specify a css id or class to attach to this particular level
     # works for all levels of the menu
