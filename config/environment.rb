@@ -21,7 +21,7 @@ Rails::Initializer.run do |config|
   config.gem "simple-navigation", :lib => "simple_navigation", :version => '>= 2.0.1'
   
   config.gem 'warden', :version => '~> 0.5'
-  config.gem 'devise', :version => '~> 0.6'
+  config.gem 'devise', :version => '= 0.6.5'
   
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
