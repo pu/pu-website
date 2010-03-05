@@ -15,13 +15,13 @@ Rails::Initializer.run do |config|
   #config.gem 'pluginaweek-state_machine', :lib => 'state_machine', :source => 'http://gems.github.com'
   config.gem 'will_paginate', :version => '>= 2.3.11'
   config.gem 'searchlogic', :version => '2.3.9'
-  config.gem 'haml', :version => '2.2.19'
+# config.gem 'haml', :version => '~> 2.20'
   config.gem 'compass', :version => '>= 0.8.17'
   config.gem 'newrelic_rpm', :version => '>= 2.9.9'
   config.gem "simple-navigation", :lib => "simple_navigation", :version => '>= 2.0.1'
   
-  config.gem 'warden', :version => '>= 0.5.2'
-  config.gem 'devise', :version => '>= 0.5.0'
+  config.gem 'warden', :version => '~> 0.5.2'
+  config.gem 'devise', :version => '~> 0.5.0'
   
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
