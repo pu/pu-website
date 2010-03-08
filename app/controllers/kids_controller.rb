@@ -1,6 +1,6 @@
 class KidsController < ApplicationController
   
-  before_filter :require_user
+  before_filter :authenticate_user!
   
   layout 'admin'
   # layout 'verwaltung'
