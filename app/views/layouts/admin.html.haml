@@ -9,7 +9,10 @@
     %link{ "rel" => "shortcut icon", "type" => "image/x-icon",  "href" => "/favicon.ico" }/
     
     = stylesheet_link_merged :admin_base
+    = stylesheet_link_tag '/markitup/skins/simple/style.css', '/markitup/sets/html/style.css'
+      
     = javascript_include_merged :admin_base
+    = javascript_include_tag '/markitup/jquery.markitup.pack.js', '/markitup/sets/html/set.js'
         
     = yield_authenticity_token
 

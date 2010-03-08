@@ -14,6 +14,8 @@ features.txt
 log/*
 public/assets
 public/stylesheets/*.css
+public/stylesheets/*_packaged.css
+public/javascripts/*_packaged.js
 public/system
 tmp/**/*
 !.keep

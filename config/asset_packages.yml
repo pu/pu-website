@@ -14,25 +14,22 @@ javascripts:
   - superfish
   - jquery.lightbox-0.5.min
   - jquery_rails_ujs_helper
-  - /markitup/jquery.markitup.pack.js
-  - /markitup/sets/html/set.js
+  # - /markitup/jquery.markitup.pack.js
+  # - /markitup/sets/html/set.js
   - admin
   
 stylesheets: 
 - base:
   - application
-  - plugins/jquery.lightbox-0.5.css
-  - tablesorter/tablesorter.css
-- base_ie:
-  - ie
-- base_print:
-  - print
+  - plugins/jquery.lightbox-0.5
+  - tablesorter/tablesorter
+
 - admin_session:
   - session
 - admin_base:
   - admin
-  - plugins/jquery-ui-1.7.2.custom.css
-  - plugins/jquery.lightbox-0.5.css
-  - plugins/superfish.css
-  - /markitup/skins/simple/style.css
-  - /markitup/sets/html/style.css
+  - plugins/jquery-ui-1.7.2.custom
+  - plugins/jquery.lightbox-0.5
+  - plugins/superfish
+  # - /markitup/skins/simple/style.css
+  # - /markitup/sets/html/style.css
