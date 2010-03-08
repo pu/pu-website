@@ -1,7 +1,8 @@
 
 #content
   %h1
-    = "Übersicht #{@posts.first.category.name}"
+    - if @posts.first
+      = "Übersicht #{@posts.first.category.name}"
 
   #posts-index
     - for post in @posts
