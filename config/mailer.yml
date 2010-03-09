@@ -1,6 +1,6 @@
 --- 
   #:tls: true
-  :address: mxgate.lbci.de
+  :address: 127.0.0.1
   :domain: basiszwo.com
   :port: 25
   # no username, password and auth method is required for mxgate
