@@ -1,6 +1,4 @@
 class PagesController < ApplicationController
-
-  caches_page :show
   
   def show
     # page = params[:id].capitalize
