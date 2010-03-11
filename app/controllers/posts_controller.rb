@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-
-  caches_page :show
   
   def show
     @post = Post.find(params[:id])
