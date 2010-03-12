@@ -1,11 +1,17 @@
 - title "Schulen"
+
+%h1
+  Schulen
+
 %p
-  = link_to "Neue Schule", new_school_path
+  = link_to "Neue Schule anlegen", new_school_path
 %table.tablesorter
   %thead
     %tr
-      %th
+      %th.header
         Name
+      %th.header{:colspan => "3"}
+        Bearbeiten
   %tbody
     - for school in @schools
       %tr

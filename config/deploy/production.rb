@@ -2,8 +2,8 @@
 #  Application
 #############################################################
 
-set :application,       "uganda"
-set :deploy_to,         "/var/www/htdocs/sites/#{application}"
+set :application,       "pu_website"
+set :deploy_to,         "/home/deploy/#{application}"
 
 #############################################################
 #  Settings
@@ -20,7 +20,7 @@ set :migrate_env, "migration"
 #  Servers
 #############################################################
 
-set :user, "rails"
+set :user, "deploy"
 set :domain, "#{production_host}"
 server domain, :app, :web
 role :db, domain, :primary => true
@@ -33,8 +33,8 @@ set :scm, :git
 set :branch, "master"
 set :scm_user, 'git'
 set :scm_passphrase, ""
-#set :repository, "git@github.com:pu/pu-website.git"
-set :repository, "git@git.basiszwo.com:#{application}.git"
+set :repository, "git@github.com:pu/pu-website.git"
+#set :repository, "git@git.basiszwo.com:#{application}.git"
 set :deploy_via, :export
 #set :deploy_via, :remote_cache
 #set :git_enable_submodules, 1

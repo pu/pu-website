@@ -1,6 +1,6 @@
 table.tablesorter {
 	font-size: 10px;
-	background-color: #4D4D4D;
+	background-color: #EEE;
 	width: 1280px;
 	border: 1px solid #000;
 }
@@ -12,7 +12,7 @@ table.tablesorter a {
 table.tablesorter th {
 	text-align: left;
 	padding: 5px;
-	background-color: #6E6E6E;
+	background-color: #EEE;
 }
 table.tablesorter td {
 	padding: 5px;
@@ -21,7 +21,7 @@ table.tablesorter .even {
 	background-color: #EEE;
 }
 table.tablesorter .odd {
-	background-color: #CCC;
+	background-color: #DDD;
 }
 table.tablesorter .header {
 	background-image: url(/images/tablesorter/bg.png);
@@ -29,9 +29,8 @@ table.tablesorter .header {
 	border-left: 1px solid #FFF;
 	border-right: 1px solid #000;
 	border-top: 1px solid #FFF;
+	background-color: #EEE;
 	padding-left: 30px;
-	padding-top: 8px;
-	height: auto;
 }
 table.tablesorter .headerSortUp {
 	background-image: url(/images/tablesorter/asc.png);

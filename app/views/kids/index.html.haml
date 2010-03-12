@@ -1,7 +1,13 @@
 - title "Kinder"
+
+%h1
+  Kinder
+
 %p
   = link_to "Neues Kind", new_kid_path
   
+= will_paginate @kids
+
 %table.tablesorter
   %thead 
     %tr 
@@ -13,9 +19,10 @@
       %th.header Geburtstag
       %th.header Beschreibung
       %th.header Schule
-      - for l in Letter.recent(4)
+      - for l in Letter.recent(2)
         %th.header
           = l.name
+      %th.header{:colspan => "3"} Bearbeiten
   %tbody
     - for kid in @kids
       %tr
@@ -45,3 +52,5 @@
           = link_to 'Bearbeiten', edit_kid_path(kid)
         %td
           = link_to 'Löschen', kid, :confirm => 'Dieses Kind wirklich löschen?', :method => :delete
+
+= will_paginate @kids

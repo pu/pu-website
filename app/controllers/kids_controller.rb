@@ -6,7 +6,7 @@ class KidsController < ApplicationController
   # layout 'verwaltung'
 
   def index
-    @kids = Kid.all
+    @kids = Kid.paginate :page => params[:page], :per_page => 100 #all
   end
   
   def show

@@ -6,7 +6,7 @@ class ParentshipsController < ApplicationController
   # layout 'verwaltung'
   
   def index
-    @parentships = Parentship.all
+    @parentships = Parentship.paginate :page => params[:page], :per_page => 100
   end
   
   def show

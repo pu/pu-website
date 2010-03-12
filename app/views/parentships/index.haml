@@ -1,30 +1,38 @@
 - title "Parentships"
+
+%h1
+  Patenschaften
+
 %p
   = link_to "Neue Patenschaft", new_parentship_path
 
+= will_paginate @parentships
+  
 %table.tablesorter
   %thead
     %tr
-      %th
+      %th.header
         Bild
-      %th
+      %th.header
         Vorname
-      %th
+      %th.header
         Name
-      %th
+      %th.header
         Nr. 
-      %th
+      %th.header
         Pate
-      %th 
+      %th.header 
         Pate
-      %th
+      %th.header
         Beginn
-      %th
+      %th.header
         Ende
-      %th
+      %th.header
         Beitrag
-      %th
+      %th.header
         Zahlweise
+      %th.header{:colspan => "3"}
+        Bearbeiten
     %tbody
       - for parentship in @parentships
         %tr
@@ -56,3 +64,5 @@
             = link_to "Löschen", parentship, :confirm => 'Diese Patenschaft wirklich löschen?', :method => :delete
 %p
   = link_to "Neue Patenschaft", new_parentship_path
+
+= will_paginate @parentships

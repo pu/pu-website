@@ -1,25 +1,33 @@
 - title "Paten"
+
+%h1
+  Paten
+
 %p
   = link_to "Neuer Pate", new_parent_path
+
+= will_paginate @parents
+
 %table.tablesorter
   %thead
     %tr
-      %th
+      %th.header
         Vorname
-      %th
+      %th.header
         Name
-      %th
+      %th.header
         Strasse
-      %th
+      %th.header
         PLZ
-      %th
+      %th.header
         Ort
-      %th
+      %th.header
         E-Mail
-      %th
+      %th.header
         Status
-      %th
+      %th.header
         Anzahl Kinder
+      %th.header{:colspan => "3"}
     %tbody
       - for parent in @parents
         %tr
@@ -46,3 +54,4 @@
           %td
             = link_to "Löschen", parent, :confirm => 'Diesen Paten wirklich löschen?', :method => :delete
 
+= will_paginate @parents

@@ -14,6 +14,7 @@ javascripts:
   - superfish
   - jquery.lightbox-0.5.min
   - jquery_rails_ujs_helper
+  - jquery.tablesorter.min
   # - /markitup/jquery.markitup.pack.js
   # - /markitup/sets/html/set.js
   - admin
@@ -25,11 +26,12 @@ stylesheets:
   - tablesorter/tablesorter
 
 - admin_session:
-  - session
+  - session 
 - admin_base:
   - admin
   - plugins/jquery-ui-1.7.2.custom
   - plugins/jquery.lightbox-0.5
   - plugins/superfish
+  - tablesorter/tablesorter
   # - /markitup/skins/simple/style.css
   # - /markitup/sets/html/style.css
