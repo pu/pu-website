@@ -22,23 +22,16 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Define the primary navigation
   navigation.items do |primary|
-    primary.item :dashboard, 'Dashboard', admin_path
-    primary.item :pages, 'Pages', admin_pages_path
-    primary.item :posts, 'Posts', admin_posts_path
+    primary.item :dashboard, 'Übersicht', admin_path
+    primary.item :pages, 'Seiten', admin_pages_path
+    primary.item :posts, 'Artikel', admin_posts_path
 
-    # primary.item :kids, 'Kids', kids_path
-    # primary.item :sponsors, 'Sponsors', parents_path
-    # primary.item :sponsorships, 'Sponsorships', parentships_path
-    # primary.item :schools, 'Schools', schools_path
-    # primary.item :parents, 'Letter', letters_path
-    
-    
-    primary.item :administration, 'Administration', '#' do |secondary|
-      secondary.item :kids, 'Kids', kids_path
-      secondary.item :sponsors, 'Sponsors', parents_path
-      secondary.item :sponsorships, 'Sponsorships', parentships_path
-      secondary.item :schools, 'Schools', schools_path
-      secondary.item :parents, 'Letter', letters_path
+    primary.item :administration, 'Verwaltung', admin_path do |secondary|
+      secondary.item :kids, 'Kinder', kids_path
+      secondary.item :sponsors, 'Paten', parents_path
+      secondary.item :sponsorships, 'Patenschaften', parentships_path
+      secondary.item :schools, 'Schulen', schools_path
+      secondary.item :parents, 'Kinderbriefe', letters_path
     end 
     
     # primary.item :users, 'Users', admin_users_path
