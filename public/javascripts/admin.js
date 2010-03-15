@@ -46,3 +46,7 @@ jQuery(document).ready(function($) {
     return this;
   };
 })(jQuery);
+
+$(document).ready(function() { 
+    $(".tablesorter").tablesorter()
+});
