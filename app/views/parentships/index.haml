@@ -6,7 +6,8 @@
 %p
   = link_to "Neue Patenschaft", new_parentship_path
 
-= will_paginate @parentships
+%p  
+  = render :partial => "layouts/tablesorter_pagination"
   
 %table.tablesorter
   %thead
@@ -64,5 +65,3 @@
             = link_to "Löschen", parentship, :confirm => 'Diese Patenschaft wirklich löschen?', :method => :delete
 %p
   = link_to "Neue Patenschaft", new_parentship_path
-
-= will_paginate @parentships

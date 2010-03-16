@@ -5,8 +5,9 @@
 
 %p
   = link_to "Neues Kind", new_kid_path
-  
-= will_paginate @kids
+
+%p  
+  = render :partial => "layouts/tablesorter_pagination"
 
 %table.tablesorter
   %thead 
@@ -52,5 +53,3 @@
           = link_to 'Bearbeiten', edit_kid_path(kid)
         %td
           = link_to 'Löschen', kid, :confirm => 'Dieses Kind wirklich löschen?', :method => :delete
-
-= will_paginate @kids

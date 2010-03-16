@@ -6,7 +6,7 @@ class SchoolsController < ApplicationController
   # layout 'verwaltung'
   
   def index
-    @schools = School.paginate :page => params[:page], :per_page => 100
+    @schools = School.all
   end
   
   def show

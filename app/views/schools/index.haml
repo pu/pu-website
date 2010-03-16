@@ -5,6 +5,10 @@
 
 %p
   = link_to "Neue Schule anlegen", new_school_path
+
+%p  
+  = render :partial => "layouts/tablesorter_pagination"  
+  
 %table.tablesorter
   %thead
     %tr

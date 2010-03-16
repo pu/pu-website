@@ -13,7 +13,6 @@ Rails::Initializer.run do |config|
   config.gem 'friendly_id', :version => '>= 2.3.1'
   config.gem 'paperclip', :version => '>= 2.3.1'
   #config.gem 'pluginaweek-state_machine', :lib => 'state_machine', :source => 'http://gems.github.com'
-  config.gem 'will_paginate', :version => '>= 2.3.11'
   config.gem 'searchlogic', :version => '2.3.9'
 # config.gem 'haml', :version => '~> 2.20'
   config.gem 'compass', :version => '>= 0.8.17'

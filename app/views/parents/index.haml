@@ -6,7 +6,8 @@
 %p
   = link_to "Neuer Pate", new_parent_path
 
-= will_paginate @parents
+%p  
+  = render :partial => "layouts/tablesorter_pagination"
 
 %table.tablesorter
   %thead
@@ -53,5 +54,3 @@
             = link_to "Bearbeiten", edit_parent_path(parent)
           %td
             = link_to "Löschen", parent, :confirm => 'Diesen Paten wirklich löschen?', :method => :delete
-
-= will_paginate @parents

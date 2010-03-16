@@ -48,5 +48,7 @@ jQuery(document).ready(function($) {
 })(jQuery);
 
 $(document).ready(function() { 
-    $(".tablesorter").tablesorter()
+    $(".tablesorter")
+        .tablesorter({widthFixed: true, widgets: ['zebra']})
+    	.tablesorterPager({container: $("#pager"), pagesize: 20}); 
 });
