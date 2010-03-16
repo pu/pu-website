@@ -143,6 +143,14 @@ namespace :asset do
     run "cd #{current_path}; rake RAILS_ENV=#{rails_env} asset:packager:build_all"
   end
   
+  after "deploy:symlink", "asset:link_picture_path"
+  desc "symlink picture path"
+  task :link_picture_path, :roles => :web do
+    run "umask 02 && mkdir -p #{shared_path}/pictures/kids"
+    run "ln -nfs #{shared_path}/pictures/kids #{release_path}/public/pictures/kids"
+  end
+  
+  
   after "deploy:symlink", "asset:link_cache_path"
   desc "symlink cache path"
   task :link_cache_path, :roles => :web do

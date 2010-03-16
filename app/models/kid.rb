@@ -11,9 +11,9 @@ class Kid < ActiveRecord::Base
   
   
   has_attached_file :picture, :styles => { :thumb => ["24x24#", :jpg], :profile => ["100x100#", :jpg] , :large => ["240x240#", :jpg], :full => ["800x600>", :jpg] }, :convert_options => {:all => "-strip -quality 80"},
-                                                           :path => ":rails_root/public/pictures/:basename_:style.:extension", 
-                                                           :url => "/pictures/:basename_:style.:extension", 
-                                                           :default_url => "/pictures/dummy_:style.png"
+                                                           :path => ":rails_root/public/pictures/kids/:basename_:style.:extension", 
+                                                           :url => "/pictures/kids/:basename_:style.:extension", 
+                                                           :default_url => "/pictures/kids/dummy_:style.png"
 
  validates_attachment_content_type :picture, :content_type => ["image/bmp", "image/jpeg", "image/pjpeg", "image/jpg", "image/pjpg", "image/png", "image/x-png", "image/gif"], :message => "Du kannst hier nur Bilder (GIF, JPEG oder PNG) hochladen"
 
