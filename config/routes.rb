@@ -1,11 +1,16 @@
 ActionController::Routing::Routes.draw do |map|
 
+
+
   map.resources :parentships, :path_prefix => "verwaltung", :as => "patenschaften"  
   map.resources :kids, :path_prefix => "verwaltung", :as => "kinder"
   map.resources :parents, :path_prefix => "verwaltung", :as => "paten"
   map.resources :schools, :path_prefix => "verwaltung", :as => "schulen"
   map.resources :letters, :path_prefix => "verwaltung", :as => "kinderbriefe"
-
+  map.resources :newsletters, :path_prefix => "verwaltung", :as => "newsletter", :member => {:send_to_all_parents => :post, :send_as_tests => :post}
+  
+#  map.send_newsletter
+  
   map.letter_received "/verwaltung/kinder/brief_erhalten/:letter_id", :controller => 'kids', :action => "toggle_letter_received", :method => :put
 
   map.resources :posts, :as => 'aktuelles'

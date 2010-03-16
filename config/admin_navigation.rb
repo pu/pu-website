@@ -26,12 +26,13 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :pages, 'Seiten', admin_pages_path
     primary.item :posts, 'Artikel', admin_posts_path
 
-    primary.item :administration, 'Verwaltung', admin_path do |secondary|
+    primary.item :administration, 'Verwaltung', newsletters_path do |secondary|
       secondary.item :kids, 'Kinder', kids_path
       secondary.item :sponsors, 'Paten', parents_path
       secondary.item :sponsorships, 'Patenschaften', parentships_path
       secondary.item :schools, 'Schulen', schools_path
       secondary.item :parents, 'Kinderbriefe', letters_path
+      secondary.item :newsletters, 'Newsletter', newsletters_path
     end 
     
     # primary.item :users, 'Users', admin_users_path

@@ -1,0 +1,28 @@
+- title "Newsletter anzeigen"
+%p
+  %strong
+    Betreff:
+  = h @newsletter.subject
+%p
+  %strong
+    Text:
+  = h @newsletter.body
+
+%p
+  %strong
+    Verschickt?
+  = @newsletter.sent_at.nil? ? (link_to "Jetzt Verschicken", send_to_all_parents_newsletter_path(@newsletter), :method => :post, :confirm => 'Diesen Newsletter jetzt an alle Paten verschicken?') : @newsletter.sent_at.to_s(:short)
+    
+%p
+  %strong
+    Anhang
+  = h @newsletter.attachment_file_name
+
+%P 
+  = image_tag @newsletter.attachment.url(:large)
+%p
+  = link_to "Bearbeiten", edit_newsletter_path(@newsletter)
+  |
+  = link_to "Löschen", @newsletter, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "Newsletterliste", newsletters_path

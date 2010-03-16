@@ -1,0 +1,35 @@
+- title "Newsletters"
+
+%p
+  = link_to "Neuen Newsletter anlegen", new_newsletter_path
+  
+%table
+  %tr
+    %th
+      Betreff
+    %th
+      Text
+    %th
+      Anhang
+    %th
+      Wann Verschickt?
+  - for newsletter in @newsletters
+    %tr
+      %td
+        = h newsletter.subject
+      %td
+        = h newsletter.body
+      %td
+        = image_tag newsletter.attachment.url(:thumb)
+      %td
+        = newsletter.sent_at.nil? ? (link_to "Jetzt Verschicken", send_to_all_parents_newsletter_path(newsletter), :method => :post, :confirm => 'Diesen Newsletter jetzt an alle Paten verschicken?') : newsletter.sent_at.to_s(:short)
+
+      %td
+        = link_to "Anzeigen", newsletter
+      %td
+        = link_to "Bearbeiten", edit_newsletter_path(newsletter)
+      %td
+        = link_to "Löschen", newsletter, :confirm => 'Diesen Newsletter wirklich löschen?', :method => :delete
+
+%p
+  = link_to "Neuen Newsletter anlegen", new_newsletter_path

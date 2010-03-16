@@ -150,6 +150,12 @@ namespace :asset do
     run "ln -nfs #{shared_path}/pictures/kids #{release_path}/public/pictures/kids"
   end
   
+  after "deploy:symlink", "asset:link_newsletters_path"
+  desc "symlink newsletter path"
+  task :link_picture_path, :roles => :web do
+    run "umask 02 && mkdir -p #{shared_path}/newsletters"
+    run "ln -nfs #{shared_path}/newsletters #{release_path}/public/newsletters"
+  end
   
   after "deploy:symlink", "asset:link_cache_path"
   desc "symlink cache path"
