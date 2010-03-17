@@ -6,9 +6,6 @@
 %p
   = link_to "Neues Kind", new_kid_path
 
-%p  
-  = render :partial => "layouts/tablesorter_pagination"
-
 %table.tablesorter
   %thead 
     %tr 
@@ -20,6 +17,7 @@
       %th.header Geburtstag
       %th.header Beschreibung
       %th.header Schule
+      %th.header Klasse
       - for l in Letter.recent(2)
         %th.header
           = l.name
@@ -43,6 +41,9 @@
           = h truncate(kid.description, 60, "...")
         %td
           = h kid.school.name if kid.school
+        %td
+          = h kid.school_visit.grade if kid.school
+
         - for l in kid.recent_letters_written
           %td
             = image_tag boolean_icon_path(l.received?)
