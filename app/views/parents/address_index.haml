@@ -1,0 +1,21 @@
+= "Adressliste für Newsletter"
+
+- for parent in @parents
+  %p{:style => "font-size: 12px"}
+    = "Abs.: Projekthilfe Uganda e.V, "
+    = "Christel Henecka ( 1. Vors. )"
+    %br/
+    = "Albrecht-Dürer-Str. 4, 76646 Bruchsal-Büchenau"
+    %br/
+    %br/
+  %p{:style => "font-size: 20px"}
+    = " #{parent.firstname} #{parent.name}"
+    %br/
+    %br/
+    = parent.street
+    %br/
+    = "#{parent.zip_code} #{parent.town}"
+  %br/
+  %br/
+  
+  

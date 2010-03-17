@@ -2,11 +2,17 @@ class ParentsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  layout 'admin'
+  layout 'admin', :except => "address_index"
   # layout 'verwaltung'
   
   def index
     @parents = Parent.all
+  end
+  
+  def address_index 
+    @parents = Parent.find_all_by_email("")
+    @parents <<  Parent.find_all_by_email(nil)
+    @parents = @parents.flatten
   end
   
   def show
