@@ -1,9 +1,10 @@
 - title "Parentships"
 %p
+  = image_tag @parentships.kid.picture.url(:thumb)
   %strong
     Kind:
   = h @parentships.kid.firstname
-  = h @parentships.kid.name
+  = h @parentships.kid.name 
 %p
   %strong
     Pate:
