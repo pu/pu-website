@@ -28,11 +28,13 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.item :administration, 'Verwaltung', newsletters_path do |secondary|
       secondary.item :kids, 'Kinder', kids_path
-      secondary.item :sponsors, 'Paten', parents_path
-      secondary.item :sponsorships, 'Patenschaften', parentships_path
+      secondary.item :parents, 'Paten', parents_path
+      secondary.item :parents, "Paten - Adressliste", address_index_parents_path
+      secondary.item :parentships, 'Patenschaften', parentships_path
       secondary.item :schools, 'Schulen', schools_path
-      secondary.item :parents, 'Kinderbriefe', letters_path
+      secondary.item :letters, 'Kinderbriefe', letters_path
       secondary.item :newsletters, 'Newsletter', newsletters_path
+
     end 
     
     # primary.item :users, 'Users', admin_users_path
