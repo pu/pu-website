@@ -13,8 +13,8 @@ class Newsletter < ActiveRecord::Base
         :url => "/newsletters/:basename_:style.:extension"
 
   def send_to_all_parents
-    parent_email_list = Parent.all.collect{ |p| p.email}
-    send_to(parent_email_list)
+    parent_email_array = Parent.all.collect{ |p| p.email}
+    send_to(parent_email_array)
     self.update_attribute(:sent_at, Time.now)
   end
   

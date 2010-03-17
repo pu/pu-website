@@ -14,6 +14,8 @@ class NewslettersController < ApplicationController
   def send_to_all_parents
     @newsletter = Newsletter.find(params[:id])
     @newsletter.send_to_all_parents
+    
+    flash[:notice] = "Newsletter wurde erfolgreich an alle Paten verschickt."
     redirect_to newsletters_url 
   end
   
@@ -21,6 +23,8 @@ class NewslettersController < ApplicationController
     receiverlist = params[:email].split(",")
     @newsletter = Newsletter.find(params[:id])
     @newsletter.send_to(receiverlist)
+    
+    flash[:notice] = "Newsletter wurde erfolgreich an #{receiverlist} verschickt."
     render :action => 'show'
   end
   
