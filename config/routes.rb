@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
 
   map.resources :parentships, :path_prefix => "verwaltung", :as => "patenschaften"  
-  map.resources :kids, :path_prefix => "verwaltung", :as => "kinder"
+  map.resources :kids, :path_prefix => "verwaltung", :as => "kinder", :member => {:send_profile => :post}
   map.resources :parents, :path_prefix => "verwaltung", :as => "paten"
   map.resources :schools, :path_prefix => "verwaltung", :as => "schulen"
   map.resources :letters, :path_prefix => "verwaltung", :as => "kinderbriefe"

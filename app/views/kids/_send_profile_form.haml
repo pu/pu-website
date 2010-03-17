@@ -1,0 +1,9 @@
+- form_tag :action => 'send_profile' do
+  %ul
+    %li
+      %label{ :for => 'email'}
+        = "Email"
+      = text_field_tag :email
+      = hidden_field_tag :id, @kid
+  %p
+    = submit_tag "Kinderprofil verschicken"

@@ -1,4 +1,7 @@
 - title "Kind"
+
+= render :partial => "send_profile_form"
+
 %p
   = image_tag @kid.picture.url(:profile)
 %p
@@ -14,7 +17,10 @@
   %strong Geburtstag:
   =h @kid.birthday
 %p
-  %strong Description:
+  %strong Wohnort:
+  =h @kid.town
+%p
+  %strong Beschreibung:
   =h @kid.description
 %p
   %strong Status:

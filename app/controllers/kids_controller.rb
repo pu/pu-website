@@ -57,4 +57,13 @@ class KidsController < ApplicationController
     
     redirect_to :action => "index"
   end
+  
+  def send_profile
+    receiverlist = params[:email].split(",")
+    @kid = Kid.find(params[:id])
+    @kid.send_profile_to(receiverlist)
+    
+    flash[:notice] = "Kinderprofil wurde erfolgreich an #{receiverlist} verschickt."
+    render :action => 'show'
+  end
 end

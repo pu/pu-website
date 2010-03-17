@@ -1,5 +1,5 @@
 class Kid < ActiveRecord::Base
-  attr_accessible :name, :firstname, :birthday, :description, :number, :sponsored_until, :picture, :school_id
+  attr_accessible :name, :firstname, :birthday, :description, :number, :sponsored_until, :picture, :school_id, :town
 
   has_many :parentships
   has_many :parents, :through => :parentships
@@ -31,6 +31,16 @@ class Kid < ActiveRecord::Base
    recent_letters.collect{ |l|
      self.letters_written.find_by_letter_id(l)
      }.compact
+ end
+ 
+ def send_profile_to(receiver_email_array)
+   receiver_email_array.each{ |r| 
+     KidsMailer.deliver_profile(r, self)
+     }
+ end
+ 
+ def birthday
+   read_attribute(:birthday).strftime("%d. %b %Y")
  end
  
  private

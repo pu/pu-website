@@ -1,0 +1,14 @@
+= "Profildaten Uganda-Patenkind #{@kid.firstname} #{@kid.name}"
+
+= "Verwaltungsnummer: #{@kid.number}"
+
+= "Vorname: #{@kid.firstname}"
+= "Name: #{@kid.name}"
+
+= "Geburtsdatum: #{@kid.birthday}"
+
+= "Wohnort: #{@kid.town}"
+
+= "Beschreibung: #{@kid.description}"
+
+= "Schule: #{@kid.school.name unless @kid.school.blank?}" 
