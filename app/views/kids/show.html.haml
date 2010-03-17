@@ -29,6 +29,13 @@
   %strong Betreuung bis:
   =h @kid.sponsored_until
 
+- for l in @kid.recent_letters_written
+  %p
+    = l.name
+    = image_tag boolean_icon_path(l.received?)
+    = hidden_field_tag :redirect_action, "show"
+    = link_to l.received? ? 'Da' : 'Fehlt', letter_received_path(l.id, :redirect_action => :show), :method => :put
+
 %p
   = link_to "Bearbeiten", edit_kid_path(@kid)
   |

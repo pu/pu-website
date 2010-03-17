@@ -55,7 +55,11 @@ class KidsController < ApplicationController
       letter.update_attribute(:received, !letter.received)
     end
     
-    redirect_to :action => "index"
+    if params[:redirect_action] == "index"
+      redirect_to :action => "index" 
+    else
+      redirect_to letter.kid
+    end
   end
   
   def send_profile
