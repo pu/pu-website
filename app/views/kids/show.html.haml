@@ -26,6 +26,9 @@
   %strong Status:
   =h @kid.status
 %p
+  %strong Schulstatus:
+  =h @kid.school_visit.description unless @kid.school_visit.nil?
+%p
   %strong Betreuung bis:
   =h @kid.sponsored_until
 
