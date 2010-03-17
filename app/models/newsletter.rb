@@ -20,7 +20,7 @@ class Newsletter < ActiveRecord::Base
   
   def send_to(receiver_email_array)
     receiver_email_array.each{ |receiver| 
-      NewsletterMailer.deliver_newsletter_to(receiver, self)
+      NewsletterMailer.deliver_newsletter_to(receiver, self) unless receiver.blank?
     }   
   end
   
