@@ -1,7 +1,7 @@
 class NewsletterMailer < ActionMailer::Base
   
-  def newsletter_to(receiver, newsletter)
-    setup_email(receiver)
+  def newsletter_to(receiver_email, newsletter)
+    setup_email(receiver_email)
     subj(newsletter.subject)
     body(newsletter.body)
     
@@ -18,10 +18,10 @@ class NewsletterMailer < ActionMailer::Base
     subject(subject + str)
   end
   
-  def setup_email(receiver)
+  def setup_email(receiver_email)
     ActionMailer::Base.logger ||= Logger.new(File.join(Rails.root, "log", "outgoing_email.log"))
     
-    recipients "#{receiver.email}"
+    recipients "#{receiver_email}"
     from       "Projekthilfe Uganda <info@projekthilfe-uganda.de>" 
     subject    "[Uganda Infobrief] "
     sent_on    Time.now

@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :parents, :path_prefix => "verwaltung", :as => "paten"
   map.resources :schools, :path_prefix => "verwaltung", :as => "schulen"
   map.resources :letters, :path_prefix => "verwaltung", :as => "kinderbriefe"
-  map.resources :newsletters, :path_prefix => "verwaltung", :as => "newsletter", :member => {:send_to_all_parents => :post, :send_as_tests => :post}
+  map.resources :newsletters, :path_prefix => "verwaltung", :as => "newsletter", :member => {:send_to_all_parents => :post, :send_test => :post}
   
 #  map.send_newsletter
   

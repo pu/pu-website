@@ -13,10 +13,15 @@ class Newsletter < ActiveRecord::Base
         :url => "/newsletters/:basename_:style.:extension"
 
   def send_to_all_parents
-    Parent.all.each{ |parent| 
-      NewsletterMailer.deliver_newsletter_to(parent, self)
-    }
+    parent_email_list = Parent.all.collect{ |p| p.email}
+    send_to(parent_email_list)
     self.update_attribute(:sent_at, Time.now)
+  end
+  
+  def send_to(receiver_email_array)
+    receiver_email_array.each{ |receiver| 
+      NewsletterMailer.deliver_newsletter_to(receiver, self)
+    }   
   end
   
   def self.human_attribute_name(a)

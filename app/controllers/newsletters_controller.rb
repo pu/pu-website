@@ -17,6 +17,13 @@ class NewslettersController < ApplicationController
     redirect_to newsletters_url 
   end
   
+  def send_test
+    receiverlist = params[:email].split(",")
+    @newsletter = Newsletter.find(params[:id])
+    @newsletter.send_to(receiverlist)
+    render :action => 'show'
+  end
+  
   def new
     @newsletter = Newsletter.new
   end
