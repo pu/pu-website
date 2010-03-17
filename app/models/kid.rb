@@ -41,7 +41,7 @@ class Kid < ActiveRecord::Base
  
  def birthday
    day = read_attribute(:birthday)
-   day.nil? ? "Unbekannt" : day.strftime("%d. %b %Y")
+   #day.nil? ? "Unbekannt" : day.strftime("%d. %b %Y")
  end
  
  private
