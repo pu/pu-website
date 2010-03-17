@@ -8,7 +8,7 @@ class KidsMailer < ActionMailer::Base
     body[:kid] = kid
       
     unless kid.picture_file_name.nil?
-      attachment "img/jpg" do |a|
+      attachment "image/jpeg" do |a|
         a.filename = kid.picture_file_name
         a.body = File.read(kid.picture.path(:large))
       end
@@ -27,7 +27,7 @@ class KidsMailer < ActionMailer::Base
     
     recipients "#{receiver_email}"
     from       "Projekthilfe Uganda <info@projekthilfe-uganda.de>" 
-    subject    "[Uganda Infobrief] "
+    subject    "[Projekthilfe Uganda] "
     sent_on    Time.now
     headers({"return-path" => "info@projekthilfe-uganda.de"})
   end
