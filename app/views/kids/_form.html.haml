@@ -27,11 +27,11 @@
     %br
     = f.text_area :description
 
-  %p
-    = f.label :sponsored_until, "Betreuung bis"
-    %br
-    = f.date_select :sponsored_until, :start_year => (Time.now.year), :end_year => (Time.now.year + 10), :order => [ :month, :year], :include_blank => "..."
-  
+    %p
+      %strong Pate:
+      =h @kid.parents.first.firstname unless @kid.parents.first.nil?
+      =h @kid.parents.first.firstname unless @kid.parents.first.nil?
+
   %p
     = f.label :picture, "Bild"
     %br
