@@ -30,8 +30,8 @@
   =h @kid.school_visit.description unless @kid.school_visit.nil?
 %p
   %strong Pate:
-  =h @kid.parent.first_name unless @kid.parent.nil?
-  =h @kid.parent.name unless @kid.parent.nil?
+  =h @kid.parents.first.firstname unless @kid.parents.first.nil?
+  =h @kid.parents.first.firstname unless @kid.parents.first.nil?
   
   
 - for l in @kid.recent_letters_written
