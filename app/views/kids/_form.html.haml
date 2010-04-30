@@ -30,7 +30,7 @@
     %p
       %strong Pate:
       =h @kid.parents.first.firstname unless @kid.parents.first.nil?
-      =h @kid.parents.first.firstname unless @kid.parents.first.nil?
+      =h @kid.parents.first.name unless @kid.parents.first.nil?
 
   %p
     = f.label :picture, "Bild"
