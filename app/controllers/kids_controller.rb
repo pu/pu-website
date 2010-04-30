@@ -5,7 +5,7 @@ class KidsController < ApplicationController
   layout 'admin'
 
   def index
-    @kids = Kid.all
+    @kids = Kid.find(:all, :include => [:school, :school_visit, :parents], :order => 'name ASC')
   end
   
   def show
