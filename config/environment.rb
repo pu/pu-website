@@ -8,12 +8,13 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   
+  config.gem "jrails", :version => "~> 0.6"
   config.gem 'mysql', :version => '>= 2.8'
   config.gem 'RedCloth', :version => '>= 4.2.2'
   config.gem 'friendly_id', :version => '>= 2.3.1'
   config.gem 'paperclip', :version => '>= 2.3.1'
   #config.gem 'pluginaweek-state_machine', :lib => 'state_machine', :source => 'http://gems.github.com'
-  config.gem 'searchlogic', :version => '2.3.9'
+  config.gem 'searchlogic', :version => '~> 2.3'
 # config.gem 'haml', :version => '~> 2.20'
   config.gem 'compass', :version => '>= 0.8.17'
   config.gem 'newrelic_rpm', :version => '>= 2.9.9'
