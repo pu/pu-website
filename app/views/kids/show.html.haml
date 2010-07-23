@@ -34,12 +34,10 @@
   =h @kid.parents.first.name unless @kid.parents.first.nil?
   
   
-- for l in @kid.recent_letters_written
+- for letter in @kid.recent_letters_written
   %p
-    = l.name
-    = image_tag boolean_icon_path(l.received?)
-    = hidden_field_tag :redirect_action, "show"
-    = link_to l.received? ? 'Da' : 'Fehlt', letter_received_path(l.id, :redirect_action => :show), :method => :put
+    = letter.name 
+    = render :partial => "letter_received", :locals => {:letter => letter, :redirect_action => :show}
 
 %p
   = link_to "Bearbeiten", edit_kid_path(@kid)

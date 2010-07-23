@@ -17,6 +17,9 @@
         Name
       %th.header
         Nr. 
+      - for l in Letter.recent(2)
+        %th.header
+          = l.name
       %th.header
         Pate
       %th.header 
@@ -42,6 +45,12 @@
             = h parentship.kid.name
           %td
             = h parentship.kid.number
+            
+          - for l in parentship.kid.recent_letters_written
+            %td{ :id => "letter_image_#{l.id}"}
+              = image_tag boolean_icon_path(l.received?)
+              %div{ :id => "letter_status_#{l.id}"}
+                = link_to_remote l.received? ? 'Da' : 'Fehlt', letter_received_path(l.id), :method => :put, :update => "letter_status_#{l.id}"
           %td
             = h parentship.parent.firstname      
           %td

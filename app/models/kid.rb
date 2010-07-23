@@ -26,7 +26,7 @@ class Kid < ActiveRecord::Base
  after_create :create_all_letters_written
  
  def recent_letters_written
-   recent_letters = Letter.find(:all, :order => "due_date DESC", :limit => 2)
+   recent_letters = Letter.recent(2)
    
    recent_letters.collect{ |l|
      self.letters_written.find_by_letter_id(l)
@@ -37,11 +37,6 @@ class Kid < ActiveRecord::Base
    receiver_email_array.each{ |r| 
      KidsMailer.deliver_profile(r, self)
      }
- end
- 
- def birthday
-   day = read_attribute(:birthday)
-   #day.nil? ? "Unbekannt" : day.strftime("%d. %b %Y")
  end
  
  private

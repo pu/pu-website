@@ -5,7 +5,7 @@ class KidsController < ApplicationController
   layout 'admin'
 
   def index
-    @kids = Kid.find(:all, :include => [:school, :school_visit, :parents], :order => 'name ASC')
+    @kids = Kid.find(:all, :include => [:school, :school_visit, :parents, :letters_written], :order => 'name ASC')
   end
   
   def show
@@ -49,16 +49,22 @@ class KidsController < ApplicationController
   end
   
   def toggle_letter_received
-    letter_id = params[:letter_id]
-    if letter = LettersWritten.find(letter_id)
-      letter.update_attribute(:received, !letter.received)
+    @letter_id = params[:letter_id]
+    if @letter = LettersWritten.find(@letter_id)
+      @letter.update_attribute(:received, !@letter.received)
     end
     
-    if params[:redirect_action] == "index"
-      redirect_to :action => "index" 
-    else
-      redirect_to letter.kid
+    respond_to do |format|
+      format.js {
+        render :update do |page|
+          page.replace_html "letter_status_#{@letter_id}", render(:partial => 'letter_received', :locals => { :letter => @letter, :redirect_action => params[:redirect_action]})
+        end
+      }
+      format.html{
+        redirect_to :action => params[:redirect_action] || :index
+      }
     end
+
   end
   
   def send_profile
