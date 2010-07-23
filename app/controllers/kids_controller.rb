@@ -61,7 +61,11 @@ class KidsController < ApplicationController
         end
       }
       format.html{
-        redirect_to :action => params[:redirect_action] || :index
+        if params[:redirect_action] == 'show'
+          redirect_to @letter.kid
+        else
+          redirect_to :action => params[:redirect_action] || :index
+        end
       }
     end
 
