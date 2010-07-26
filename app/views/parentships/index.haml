@@ -5,7 +5,7 @@
 
 %p
   = link_to "Neue Patenschaft", new_parentship_path
-  
+
 %table.tablesorter
   %thead
     %tr
@@ -16,13 +16,13 @@
       %th.header
         Name
       %th.header
-        Nr. 
+        Nr.
       - for l in Letter.recent(2)
         %th.header
           = l.name
       %th.header
         Pate
-      %th.header 
+      %th.header
         Pate
       %th.header
         Beginn
@@ -37,7 +37,7 @@
     %tbody
       - for parentship in @parentships
         %tr
-          %td 
+          %td
             = image_tag parentship.kid.picture.url(:thumb)
           %td
             = h parentship.kid.firstname
@@ -45,14 +45,13 @@
             = h parentship.kid.name
           %td
             = h parentship.kid.number
-            
-          - for l in parentship.kid.recent_letters_written
-            %td{ :id => "letter_image_#{l.id}"}
-              = image_tag boolean_icon_path(l.received?)
-              %div{ :id => "letter_status_#{l.id}"}
-                = link_to_remote l.received? ? 'Da' : 'Fehlt', letter_received_path(l.id), :method => :put, :update => "letter_status_#{l.id}"
+
+          - for letter in parentship.kid.recent_letters_written
+            %td
+              = render :partial => "kids/letter_received", :locals => {:letter => letter, :redirect_action => :index}
+
           %td
-            = h parentship.parent.firstname      
+            = h parentship.parent.firstname
           %td
             = h parentship.parent.name
           %td
