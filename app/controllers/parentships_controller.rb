@@ -1,22 +1,22 @@
 class ParentshipsController < ApplicationController
 
   before_filter :authenticate_user!
-  
+
   layout 'admin'
   # layout 'verwaltung'
-  
+
   def index
     @parentships = Parentship.all
   end
-  
+
   def show
-    @parentships = Parentship.find(params[:id])
+    @parentship = Parentship.find(params[:id])
   end
-  
+
   def new
     @parentships = Parentship.new
   end
-  
+
   def create
     @parentships = Parentship.new(params[:parentships])
     if @parentships.save
@@ -26,11 +26,11 @@ class ParentshipsController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @parentships = Parentship.find(params[:id])
   end
-  
+
   def update
     @parentships = Parentship.find(params[:id])
     if @parentships.update_attributes(params[:parentships])
@@ -40,7 +40,7 @@ class ParentshipsController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @parentships = Parentship.find(params[:id])
     @parentships.destroy

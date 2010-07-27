@@ -23,31 +23,5 @@
       %th.header{:colspan => "3"} Bearbeiten
   %tbody
     - for kid in @kids
-      %tr
-        %td
-          = h kid.number
-        %td
-          = image_tag kid.picture.url(:thumb)
-        %td
-          = h kid.firstname
-        %td
-          = h kid.name
-        %td
-          = h truncate(kid.description, 60, "...")
-        %td
-          = h kid.school.name if kid.school
-        %td
-          = h kid.school_visit.grade if kid.school
-
-        %td
-          = h "#{kid.parents.first.firstname} #{kid.parents.first.name}" if kid.parents.first
-
-        - for letter in kid.recent_letters_written
-          %td
-            = render :partial => "letter_received", :locals => {:letter => letter, :redirect_action => :index}
-        %td
-          = link_to 'Anzeigen', kid
-        %td
-          = link_to 'Bearbeiten', edit_kid_path(kid)
-        %td
-          = link_to 'Löschen', kid, :confirm => 'Dieses Kind wirklich löschen?', :method => :delete
+      - cache("kid_row_#{kid.id}") do
+        = render :partial => 'kids/tablerow', :locals => {:kid => kid}
