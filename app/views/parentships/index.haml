@@ -25,6 +25,10 @@
       %th.header
         Pate
       %th.header
+        Adresse
+      %th.header
+        Adresse
+      %th.header
         Beginn
       %th.header
         Ende
@@ -54,6 +58,10 @@
             = h parentship.parent.firstname
           %td
             = h parentship.parent.name
+          %td
+            = h parentship.parent.street
+          %td
+            = h (parentship.parent.zip_code + " " + parentship.parent.town)
           %td
             = h parentship.starts_at
           %td
