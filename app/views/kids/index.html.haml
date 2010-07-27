@@ -1,18 +1,18 @@
 - title "Kinder"
 
 %h1#kinder
-  Kinder
+  Liste aller Kinder
 
-%p
-  = link_to "Neues Kind", new_kid_path
+
+= render :partial => "layouts/menu"
 
 %table.tablesorter
-  %thead 
-    %tr 
+  %thead
+    %tr
       %th.header Nummer
       %th.header Bild
       %th.header Vorname
-      %th.header Name    
+      %th.header Name
       %th.header Beschreibung
       %th.header Schule
       %th.header Klasse
