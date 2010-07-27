@@ -1,10 +1,9 @@
 - title "Paten"
 
 %h1
-  Paten
+  Liste aller Paten
 
-%p
-  = link_to "Neuer Pate", new_parent_path
+= render :partial => "layouts/menu"
 
 %table.tablesorter
   %thead
@@ -48,7 +47,7 @@
           %td
             = h parent.status
           %td
-            = h parent.kids.size  
+            = h parent.kids.size
           %td
             = link_to "Anzeigen", parent
           %td
