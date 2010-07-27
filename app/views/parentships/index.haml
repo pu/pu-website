@@ -29,6 +29,10 @@
       %th.header
         Adresse
       %th.header
+        Telefonnumer
+      %th.header
+        Email
+      %th.header
         Beginn
       %th.header
         Ende
@@ -53,7 +57,6 @@
           - for letter in parentship.kid.recent_letters_written
             %td
               = render :partial => "kids/letter_received", :locals => {:letter => letter, :redirect_action => :index}
-
           %td
             = h parentship.parent.firstname
           %td
@@ -62,6 +65,10 @@
             = h parentship.parent.street
           %td
             = h (parentship.parent.zip_code + " " + parentship.parent.town)
+          %td
+            = h parentship.parent.phone_number
+          %td
+            = h parentship.parent.email
           %td
             = h parentship.starts_at
           %td
