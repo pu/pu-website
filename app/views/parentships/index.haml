@@ -9,13 +9,19 @@
   %thead
     %tr
       %th.header
+        Nummer
+      %th.header
         Bild
       %th.header
         Vorname
       %th.header
         Name
       %th.header
-        Nr.
+        Beschreibung
+      %th.header
+        Schule
+      %th.header
+        Klasse
       - for l in Letter.recent(2)
         %th.header
           = l.name
@@ -26,11 +32,15 @@
       %th.header
         Adresse
       %th.header
-        Adresse
+        PLZ
+      %th.header
+        Ort
       %th.header
         Telefonnumer
       %th.header
         Email
+      %th.header
+        Anzahl
       %th.header
         Beginn
       %th.header
@@ -44,38 +54,14 @@
     %tbody
       - for parentship in @parentships
         %tr
-          %td
-            = image_tag parentship.kid.picture.url(:thumb)
-          %td
-            = h parentship.kid.firstname
-          %td
-            = h parentship.kid.name
-          %td
-            = h parentship.kid.number
+          = render :partial => 'kids/kids_row', :locals => {:kid => parentship.kid}
 
           - for letter in parentship.kid.recent_letters_written
             %td
-              = render :partial => "kids/letter_received", :locals => {:letter => letter, :redirect_action => :index}
-          %td
-            = h parentship.parent.firstname
-          %td
-            = h parentship.parent.name
-          %td
-            = h parentship.parent.street
-          %td
-            = h (parentship.parent.zip_code + " " + parentship.parent.town)
-          %td
-            = h parentship.parent.phone
-          %td
-            = h parentship.parent.email
-          %td
-            = h parentship.starts_at
-          %td
-            = h parentship.expires_at
-          %td
-            = h parentship.fee
-          %td
-            = h parentship.paying_period
+              = render :partial => "letters/letter_received", :locals => {:letter => letter, :redirect_action => :index}
+
+          = render :partial => 'parents/parents_row', :locals => {:parent => parentship.parent}
+
           %td
             = link_to "Anzeigen", parentship
           %td

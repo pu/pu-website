@@ -30,24 +30,7 @@
     %tbody
       - for parent in @parents
         %tr
-          %td
-            = h parent.firstname
-          %td
-            = h parent.name
-          %td
-            = h parent.street
-          %td
-            = h parent.zip_code
-          %td
-            = h parent.town
-          %td
-            = h parent.email
-          %td
-            = h parent.phone
-          %td
-            = h parent.status
-          %td
-            = h parent.kids.size
+          = render :partial => 'parents/parents_row', :locals => {:parent => parent}
           %td
             = link_to "Anzeigen", parent
           %td

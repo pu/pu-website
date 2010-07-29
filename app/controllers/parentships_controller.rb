@@ -35,6 +35,10 @@ class ParentshipsController < ApplicationController
     @parentships = Parentship.find(params[:id])
     if @parentships.update_attributes(params[:parentships])
       flash[:notice] = "Successfully updated parentship."
+
+      expire_fragment("parent_#{@parentship.parent.id}")
+      expire_fragment("kid_#{@parentship.kid.id}")
+
       redirect_to @parentships
     else
       render :action => 'edit'

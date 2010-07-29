@@ -9,6 +9,8 @@ config.action_controller.consider_all_requests_local = false
 config.action_controller.perform_caching             = true
 config.action_view.cache_template_loading            = true
 
+ActionController::Base.cache_store = :memory_store
+
 # See everything in the log (default is :info)
 # config.log_level = :debug
 
@@ -28,3 +30,4 @@ config.action_view.cache_template_loading            = true
 # config.threadsafe!
 
 config.action_mailer.default_url_options = { :host => "projekthilfe-uganda.de" }
+
