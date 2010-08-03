@@ -32,12 +32,12 @@
   %strong Pate:
   =h @kid.parents.first.firstname unless @kid.parents.first.nil?
   =h @kid.parents.first.name unless @kid.parents.first.nil?
-  
-  
+
+
 - for letter in @kid.recent_letters_written
   %p
-    = letter.name 
-    = render :partial => "letter_received", :locals => {:letter => letter, :redirect_action => :show}
+    = letter.name
+    = render :partial => "letters/letter_received", :locals => {:letter => letter, :redirect_action => :show}
 
 %p
   = link_to "Bearbeiten", edit_kid_path(@kid)
