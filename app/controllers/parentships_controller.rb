@@ -56,7 +56,7 @@ private
 
 def expire_view_cache_for(parentship)
   # This chould be model code, but conceptually it copes with views and caching
-  expire_fragement(:key => "kids_row#{parentship.kid.id}")
-  expire_fragement(:key => "parents_row#{parentship.parent.id}")
+  expire_fragment(:key => "kids_row#{parentship.kid.id}")
+  expire_fragment(:key => "parents_row#{parentship.parent.id}")
   expire_fragment(:key => "parentships_row_#{parentship.id}")
 end
