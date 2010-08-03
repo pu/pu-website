@@ -53,7 +53,7 @@ class LettersController < ApplicationController
      if @letter = LettersWritten.find(@letter_id)
        @letter.update_attribute(:received, !@letter.received)
 
-       self.expire_view_cache_for(letter)
+       self.expire_view_cache_for(@letter)
      end
 
      respond_to do |format|
