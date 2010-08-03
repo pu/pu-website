@@ -1,5 +1,7 @@
 class ParentsController < ApplicationController
 
+  include CacheExpiryHelper
+
   before_filter :authenticate_user!
 
   layout 'admin', :except => "address_index"
