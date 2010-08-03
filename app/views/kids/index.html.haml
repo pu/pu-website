@@ -22,7 +22,7 @@
       %th.header{:colspan => "3"} Bearbeiten
   %tbody
     - for kid in @kids
-      - cache "kids_row_#{kid.id}" do
+      - cache :key => "kids_row_#{kid.id}" do
         %tr
           = render :partial => "kids/kids_row", :locals => {:kid => kid}
 
