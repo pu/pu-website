@@ -53,7 +53,7 @@ class LettersController < ApplicationController
      if @letter = LettersWritten.find(@letter_id)
        @letter.update_attribute(:received, !@letter.received)
 
-       expire_fragment("letter_received_#{@letter.id}")
+       self.expire_view_cache_for(letter)
      end
 
      respond_to do |format|
@@ -74,4 +74,14 @@ class LettersController < ApplicationController
    end
 
 
+end
+
+
+def expire_view_cache_for(letter)
+  kid = letter.kid
+
+  # we should refactor this to a helper.
+  expire_fragment(:key => "kids_row#{kid.id}")
+  kid.parentships.each{|p| expire_fragment(:key => "parentships_row_#{p.id}")}
+  kid.parents.each{|p| expire_fragment(:key => "parents_row_#{p.id}")}
 end
