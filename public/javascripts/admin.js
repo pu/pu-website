@@ -9,12 +9,12 @@ jQuery(document).ready(function($) {
     $(this).next("div.description").slideToggle();
     return false;
   });
-   
+
   $('ul.sf-menu').superfish({
     speed:       'fast'
   });
-  
-  
+
+
   /*
    * lightbox
    */
@@ -26,12 +26,12 @@ jQuery(document).ready(function($) {
     imageBtnClose:    '/images/admin/lightbox-btn-close.gif',
     imageBlank:       '/images/admin/lightbox-blank.gif'
   });
-  
+
 
   $('.table-listing tr').live('dblclick', function(){
     location.href = $(this).attr('edit_url');
   });
-  
+
   $(".markItUp").markItUp(mySettings);
 
 });
@@ -47,7 +47,8 @@ jQuery(document).ready(function($) {
   };
 })(jQuery);
 
-$(document).ready(function() { 
+$(document).ready(function() {
     $(".tablesorter")
         .tablesorter({widthFixed: true, widgets: ['zebra']})
+        .tablesorterPager({container: $("#pager"), pagesize: 20});
 });
