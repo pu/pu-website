@@ -16,7 +16,7 @@ config.action_view.cache_template_loading            = true
 # config.logger = SyslogLogger.new
 
 # Use a different cache store in production
-ActionController::Base.cache_store = :file_store, File.join(Rails.root, "cache", "fragments")
+ActionController::Base.cache_store = :file_store, File.join(Rails.root, "public", "cache", "fragments")
 
 # Enable serving of images, stylesheets, and javascripts from an asset server
 # config.action_controller.asset_host = "http://assets.example.com"
