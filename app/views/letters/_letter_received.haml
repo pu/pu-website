@@ -1,4 +1,3 @@
-- cache "letter_received_#{letter.id}" do
-  %span{:id => "letter_status_#{letter.id}"}
-    = image_tag boolean_icon_path(letter.received?)
-    = link_to_remote (letter.received? ? 'Da' : 'Fehlt', {:url => letter_received_path(letter.id, :redirect_action => redirect_action), :method => :put}, :href => letter_received_path(letter.id, :redirect_action => redirect_action) )
+%span{:id => "letter_status_#{letter.id}"}
+  = image_tag boolean_icon_path(letter.received?)
+  = link_to_remote (letter.received? ? 'Da' : 'Fehlt', {:url => letter_received_path(letter.id, :redirect_action => redirect_action), :method => :put}, :href => letter_received_path(letter.id, :redirect_action => redirect_action) )

@@ -22,14 +22,16 @@
       %th.header{:colspan => "3"} Bearbeiten
   %tbody
     - for kid in @kids
-      %tr
-        = render :partial => 'kids/kids_row', :locals => {:kid => kid}
-        - for letter in kid.recent_letters_written
+      - cache "kids_row_#{kid.id}" do
+        %tr
+          = render :partial => "kids/kids_row", :locals => {:kid => kid}
+
+          - for letter in kid.recent_letters_written
+            %td
+              = render :partial => "letters/letter_received", :locals => {:letter => letter, :redirect_action => :index}
           %td
-            = render :partial => "letters/letter_received", :locals => {:letter => letter, :redirect_action => :index}
-        %td
-          = link_to 'Anzeigen', kid
-        %td
-          = link_to 'Bearbeiten', edit_kid_path(kid)
-        %td
-          = link_to 'Löschen', kid, :confirm => 'Dieses Kind wirklich löschen?', :method => :delete
+            = link_to 'Anzeigen', kid
+          %td
+            = link_to 'Bearbeiten', edit_kid_path(kid)
+          %td
+            = link_to 'Löschen', kid, :confirm => 'Dieses Kind wirklich löschen?', :method => :delete

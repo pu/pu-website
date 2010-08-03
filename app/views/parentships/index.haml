@@ -53,20 +53,20 @@
         Bearbeiten
     %tbody
       - for parentship in @parentships
-        %tr
-          = render :partial => 'kids/kids_row', :locals => {:kid => parentship.kid}
-
-          - for letter in parentship.kid.recent_letters_written
+        - kid = parentship.kid
+        - parent = parentship.parent
+        - cache :key => "parentships_row_#{parentship.id}" do
+          %tr
+            = render :partial => 'kids/kids_row', :locals => {:kid => kid}
+            - for letter in kid.recent_letters_written
+              %td
+                = render :partial => "letters/letter_received", :locals => {:letter => letter, :redirect_action => :index}
+            = render :partial => 'parents/parents_row', :locals => {:parent => parent}
             %td
-              = render :partial => "letters/letter_received", :locals => {:letter => letter, :redirect_action => :index}
-
-          = render :partial => 'parents/parents_row', :locals => {:parent => parentship.parent}
-
-          %td
-            = link_to "Anzeigen", parentship
-          %td
-            = link_to "Bearbeiten", edit_parentship_path(parentship)
-          %td
-            = link_to "Löschen", parentship, :confirm => 'Diese Patenschaft wirklich löschen?', :method => :delete
+              = link_to "Anzeigen", parentship
+            %td
+              = link_to "Bearbeiten", edit_parentship_path(parentship)
+            %td
+              = link_to "Löschen", parentship, :confirm => 'Diese Patenschaft wirklich löschen?', :method => :delete
 %p
   = link_to "Neue Patenschaft", new_parentship_path

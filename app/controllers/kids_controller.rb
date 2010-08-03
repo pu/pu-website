@@ -5,7 +5,7 @@ class KidsController < ApplicationController
   layout 'admin'
 
   def index
-    @kids = Kid.find(:all, :include => [:school, :school_visit, :parents, :letters_written], :order => 'name ASC')
+    @kids = Kid.find(:all, :include => [:school, :school_visit, :parents, :letters_written], :order => 'name ASC'ss)
   end
 
   def show
@@ -35,7 +35,7 @@ class KidsController < ApplicationController
     @kid = Kid.find(params[:id])
     if @kid.update_attributes(params[:kid])
 
-      expire_fragment("kid_#{@kid.id}")
+      self.expire_view_cache_for(kid)
 
       flash[:notice] = "Successfully updated kid."
       redirect_to @kid
@@ -59,4 +59,13 @@ class KidsController < ApplicationController
     flash[:notice] = "Kinderprofil wurde erfolgreich an #{receiverlist} verschickt."
     render :action => 'show'
   end
+end
+
+private
+
+def expire_view_cache_for(kid)
+  # This chould be model code, but conceptually it copes with views and caching
+  expire_fragement(:key => "kids_row#{kid.id}")
+  kid.parentships.each{|p| expire_fragment(:key => "parentships_row_#{p.id}")}
+  kid.parents.each{|p| expire_fragment(:key => "parents_row_#{p.id}")}
 end

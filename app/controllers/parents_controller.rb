@@ -42,7 +42,7 @@ class ParentsController < ApplicationController
     if @parent.update_attributes(params[:parent])
       flash[:notice] = "Successfully updated parent."
 
-      expire_fragment("parent_#{@parent.id}")
+      self.expire_view_cache_for(@parents)
 
       redirect_to @parent
     else
@@ -56,4 +56,11 @@ class ParentsController < ApplicationController
     flash[:notice] = "Successfully destroyed parent."
     redirect_to parents_url
   end
+end
+
+def expire_view_cache_for(parent)
+  # This chould be model code, but conceptually it copes with views and caching
+  expire_fragment(:key => "parents_row#{parent.id}")
+  parent.parentships.each{|p| expire_fragment(:key => "parentships_row_#{p.id}")}
+  parent.kids.each{|k| expire_fragment(:key => "kids_row_#{k.id}"}
 end

@@ -1,16 +1,15 @@
-- cache "kid_#{kid.id}" do
-  %td
-    = h kid.number
-  %td
-    = image_tag kid.picture.url(:thumb)
-  %td
-    = h kid.firstname
-  %td
-    = h kid.name
-  %td
-    = h truncate(kid.description, 60, "...")
-  %td
-    = h kid.school.name if kid.school
-  %td
-    = h kid.school_visit.grade if kid.school
+%td
+  = h kid.number
+%td
+  = image_tag kid.picture.url(:thumb)
+%td
+  = h kid.firstname
+%td
+  = h kid.name
+%td
+  = h truncate(kid.description, 60, "...")
+%td
+  = h kid.school.name if kid.school
+%td
+  = h kid.school_visit.grade if kid.school
 

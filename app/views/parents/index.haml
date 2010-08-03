@@ -29,11 +29,12 @@
       %th.header{:colspan => "3"}
     %tbody
       - for parent in @parents
-        %tr
-          = render :partial => 'parents/parents_row', :locals => {:parent => parent}
-          %td
-            = link_to "Anzeigen", parent
-          %td
-            = link_to "Bearbeiten", edit_parent_path(parent)
-          %td
-            = link_to "Löschen", parent, :confirm => 'Diesen Paten wirklich löschen?', :method => :delete
+        - cache :key => "parents_row_#{parent.id}" do
+          %tr
+            = render :partial => 'parents/parents_row', :locals => {:parent => parent}
+            %td
+              = link_to "Anzeigen", parent
+            %td
+              = link_to "Bearbeiten", edit_parent_path(parent)
+            %td
+              = link_to "Löschen", parent, :confirm => 'Diesen Paten wirklich löschen?', :method => :delete
