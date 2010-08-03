@@ -35,7 +35,7 @@ class KidsController < ApplicationController
     @kid = Kid.find(params[:id])
     if @kid.update_attributes(params[:kid])
 
-      self.expire_view_cache_for(kid)
+      expire_view_cache_for(@kid)
 
       flash[:notice] = "Successfully updated kid."
       redirect_to @kid

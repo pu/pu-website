@@ -36,7 +36,7 @@ class ParentshipsController < ApplicationController
     if @parentships.update_attributes(params[:parentships])
       flash[:notice] = "Successfully updated parentship."
 
-      self.expire_view_cache_for(@parentship)
+      expire_view_cache_for(@parentship)
 
       redirect_to @parentships
     else

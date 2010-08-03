@@ -42,7 +42,7 @@ class ParentsController < ApplicationController
     if @parent.update_attributes(params[:parent])
       flash[:notice] = "Successfully updated parent."
 
-      self.expire_view_cache_for(@parents)
+      expire_view_cache_for(@parent)
 
       redirect_to @parent
     else
