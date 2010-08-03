@@ -1,5 +1,7 @@
 class KidsController < ApplicationController
 
+  include CacheExpiryHelper
+
   before_filter :authenticate_user!
 
   layout 'admin'
@@ -35,7 +37,7 @@ class KidsController < ApplicationController
     @kid = Kid.find(params[:id])
     if @kid.update_attributes(params[:kid])
 
-      expire_view_cache_for(@kid)
+      expire_view_cache_for_kid(@kid)
 
       flash[:notice] = "Successfully updated kid."
       redirect_to @kid
@@ -59,13 +61,4 @@ class KidsController < ApplicationController
     flash[:notice] = "Kinderprofil wurde erfolgreich an #{receiverlist} verschickt."
     render :action => 'show'
   end
-end
-
-private
-
-def expire_view_cache_for(kid)
-  # This chould be model code, but conceptually it copes with views and caching
-  expire_fragment(:key => "kids_row#{kid.id}")
-  kid.parentships.each{|p| expire_fragment(:key => "parentships_row_#{p.id}")}
-  kid.parents.each{|p| expire_fragment(:key => "parents_row_#{p.id}")}
 end

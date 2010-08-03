@@ -36,7 +36,7 @@ class ParentshipsController < ApplicationController
     if @parentships.update_attributes(params[:parentships])
       flash[:notice] = "Successfully updated parentship."
 
-      expire_view_cache_for(@parentship)
+      expire_view_cache_for_parentship(@parentship)
 
       redirect_to @parentships
     else
@@ -54,9 +54,3 @@ end
 
 private
 
-def expire_view_cache_for(parentship)
-  # This chould be model code, but conceptually it copes with views and caching
-  expire_fragment(:key => "kids_row#{parentship.kid.id}")
-  expire_fragment(:key => "parents_row#{parentship.parent.id}")
-  expire_fragment(:key => "parentships_row_#{parentship.id}")
-end
