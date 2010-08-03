@@ -9,8 +9,6 @@ config.action_controller.consider_all_requests_local = false
 config.action_controller.perform_caching             = true
 config.action_view.cache_template_loading            = true
 
-ActionController::Base.cache_store = :memory_store
-
 # See everything in the log (default is :info)
 # config.log_level = :debug
 
@@ -18,7 +16,7 @@ ActionController::Base.cache_store = :memory_store
 # config.logger = SyslogLogger.new
 
 # Use a different cache store in production
-# config.cache_store = :mem_cache_store
+ActionController::Base.cache_store = :file_store, File.join(Rails.root, "cache", "fragments")
 
 # Enable serving of images, stylesheets, and javascripts from an asset server
 # config.action_controller.asset_host = "http://assets.example.com"
@@ -30,4 +28,3 @@ ActionController::Base.cache_store = :memory_store
 # config.threadsafe!
 
 config.action_mailer.default_url_options = { :host => "projekthilfe-uganda.de" }
-
