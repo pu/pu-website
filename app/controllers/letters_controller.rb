@@ -23,6 +23,7 @@ class LettersController < ApplicationController
     @letter = Letter.new(params[:letter])
     if @letter.save
       flash[:notice] = "Successfully created letter."
+      expire_all_caches
       redirect_to @letter
     else
       render :action => 'new'

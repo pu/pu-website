@@ -1,5 +1,11 @@
 module CacheExpiryHelper
 
+  def expire_all_caches
+    Kid.all.each{ |k|
+      expire_view_cache_for_kid(k)
+      }
+  end
+
   def expire_view_cache_for_kid(kid)
     expire_fragment(:key => "kids_row#{kid.id}")
     kid.parentships.each{|p| expire_fragment(:key => "parentships_row_#{p.id}")}
