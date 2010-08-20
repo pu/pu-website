@@ -8,7 +8,7 @@ class ParentshipsController < ApplicationController
   # layout 'verwaltung'
 
   def index
-    @parentships = Parentship.all
+    @parentships = Parentship.find(:all, :limit => 50)
   end
 
   def show

@@ -7,7 +7,8 @@ class KidsController < ApplicationController
   layout 'admin'
 
   def index
-    @kids = Kid.find(:all, :include => [:school, :school_visit, :parents, :letters_written], :order => 'name ASC')
+    @page_title = "Alle Kinder"
+    @kids = Kid.find(:all, :include => [:school, :school_visit, :parents, :letters_written], :order => 'name ASC', :limit => 20)
   end
 
   def show
@@ -61,4 +62,17 @@ class KidsController < ApplicationController
     flash[:notice] = "Kinderprofil wurde erfolgreich an #{receiverlist} verschickt."
     render :action => 'show'
   end
+
+  def kids_without_letters
+    @page_title = "Kinder ohne Brief"
+    @kids = Kid.without_recent_letter
+    render :action => 'index'
+  end
+
+  def kids_without_parents
+    @page_title = "Kinder ohne Paten"
+    @kids = Kid.without_parent
+    render :action => 'index'
+  end
+
 end

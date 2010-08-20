@@ -1,13 +1,13 @@
-- title "Kinder"
+- title @page_title
 
 %h1#kinder
-  Liste aller Kinder
+  = @page_title
 
 
 = render :partial => "layouts/menu"
 
-%p
-  = render :partial => "layouts/tablesorter_pagination"
+/ %p
+= render :partial => "layouts/tablesorter_pagination"
 %table.tablesorter
   %thead
     %tr

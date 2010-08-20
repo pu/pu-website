@@ -3,16 +3,16 @@ class Kid < ActiveRecord::Base
 
   has_many :parentships
   has_many :parents, :through => :parentships
-  
+
   has_one :school, :through => :school_visit
   has_one :school_visit
-  
+
   has_many :letters_written
-  
-  
+
+
   has_attached_file :picture, :styles => { :thumb => ["24x24#", :jpg], :profile => ["100x100#", :jpg] , :large => ["240x240#", :jpg], :full => ["800x600>", :jpg] }, :convert_options => {:all => "-strip -quality 80"},
-                                                           :path => ":rails_root/public/pictures/kids/:basename_:style.:extension", 
-                                                           :url => "/pictures/kids/:basename_:style.:extension", 
+                                                           :path => ":rails_root/public/pictures/kids/:basename_:style.:extension",
+                                                           :url => "/pictures/kids/:basename_:style.:extension",
                                                            :default_url => "/pictures/kids/dummy_:style.png"
 
  validates_attachment_content_type :picture, :content_type => ["image/bmp", "image/jpeg", "image/pjpeg", "image/jpg", "image/pjpg", "image/png", "image/x-png", "image/gif"], :message => "Du kannst hier nur Bilder (GIF, JPEG oder PNG) hochladen"
@@ -20,31 +20,38 @@ class Kid < ActiveRecord::Base
  validates_attachment_size :picture, :less_than => 4.megabyte, :message => "Das Bild kann höchstens 4 MB gross sein"
 
  validates_uniqueness_of :number, :message => "Diese Nummer ist bereits vergeben"
- 
+
  validates_presence_of :firstname, :name, :number, :message => " darf nicht leer sein"
- 
- after_create :create_all_letters_written
- 
+
+ named_scope :without_recent_letter, {:select => "kids.*", :joins => "JOIN letters_writtens ON letters_writtens.kid_id = kids.id", :conditions => "letters_writtens.received = '0' AND letters_writtens.letter_id = #{Letter.recent(1).last.id}" }
+
+ named_scope :without_parent, {:select => "kids.*", :joins => "LEFT OUTER JOIN parentships ON parentships.kid_id = kids.id", :conditions => 'parentships.parent_id is NULL' }
+
+
  def recent_letters_written
    recent_letters = Letter.recent(2)
-   
+
    recent_letters.collect{ |l|
      self.letters_written.find_by_letter_id(l)
      }.compact
  end
- 
+
  def send_profile_to(receiver_email_array)
-   receiver_email_array.each{ |r| 
+   receiver_email_array.each{ |r|
      KidsMailer.deliver_profile(r, self)
      }
  end
- 
+
  private
- 
+
  def create_all_letters_written
    Letter.find(:all).each{ |l|
      LettersWritten.find_or_create_by_kid_id_and_letter_id_and_received(self.id, l.id, false)
    }
  end
- 
+
+ def self.most_recent_letter_id
+    Letter.recent.last.id
+ end
+
 end

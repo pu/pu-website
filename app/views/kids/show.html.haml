@@ -2,8 +2,7 @@
 
 = render :partial => "send_profile_form"
 
-%p
-  = image_tag @kid.picture.url(:profile)
+
 %p
   %strong Nummer:
   =h @kid.number
@@ -14,30 +13,22 @@
   %strong Name:
   =h @kid.name
 %p
-  %strong Geburtstag:
-  =h @kid.birthday
+  = image_tag @kid.picture.url(:profile)
+%p
+  %strong Geburtsjahr:
+  =h @kid.birthday.strftime("%Y")
 %p
   %strong Wohnort:
   =h @kid.town
 %p
   %strong Beschreibung:
   =h @kid.description
+
 %p
-  %strong Status:
-  =h @kid.status
-%p
-  %strong Schulstatus:
+  %strong Schule:
+  =h @kid.school.name
   =h @kid.school_visit.description unless @kid.school_visit.nil?
-%p
-  %strong Pate:
-  =h @kid.parents.first.firstname unless @kid.parents.first.nil?
-  =h @kid.parents.first.name unless @kid.parents.first.nil?
 
-
-- for letter in @kid.recent_letters_written
-  %p
-    = letter.name
-    = render :partial => "letters/letter_received", :locals => {:letter => letter, :redirect_action => :show}
 
 %p
   = link_to "Bearbeiten", edit_kid_path(@kid)
