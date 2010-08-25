@@ -5,22 +5,43 @@
   = link_to 'New Post', new_admin_post_path
 
 .table-listing
-  %table
+  %table#sortable_posts{ :url => sort_admin_posts_path }
     %thead
       %tr
-        %th Category
-        %th Title
-        %th Created at
-        %th Updated at
+        %th Bild
+        %th Kategorie
+        %th Sichtbarkeit
+        %th Titel
+        %th Bearbeitet am
         %th &nbsp;
 
     - for post in @posts
-      %tr{ :class => cycle('odd', 'even'), :edit_url => edit_admin_post_path(post) }
+      %tr.tableDnD{ :class => cycle('odd', 'even'), :edit_url => edit_admin_post_path(post), :id => post.id }
+        %td.preview
+          - unless post.images.empty?
+            = image_tag( post.images.first.url(:small), :alt => post.title, :title => post.title )
+          - else
+            = 'kein Bild'
+        
         %td= h post.category.name if post.category
+        %td= h post.visibility_state
         %td= h post.title
-        %td= h post.created_at
         %td= h post.updated_at
       
         %td
           = link_to 'Edit', edit_admin_post_path(post)
           = link_to 'Destroy', admin_post_path(post), :confirm => 'Are you sure?', :method => :delete, :id => "destroy_#{post.id}"
+
+:javascript
+  // initialize sortable tables
+  $("#sortable_posts").tableDnD({
+    onDrop: function() {
+      var serial = $.tableDnD.serialize()
+      $.ajax({
+        type: "POST",
+        url: $("#sortable_posts").attr('url'),
+        data: serial,
+        dataType : 'text/javascript'
+      });
+    }
+  });

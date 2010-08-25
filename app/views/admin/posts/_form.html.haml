@@ -1,13 +1,22 @@
 = form.error_messages
 
+%h2#general_headline
+  Allgemein
+
 .form
-  %ul
+  %ul.list
+    %li
+      = form.label :visibility_state, 'Sichtbarkeit'
+      = form.select :visibility_state, Post.visibility_states.collect, { :include_blank => true, :class => 'text' }
+      
     %li
       = form.label :category_id
       = form.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, { :include_blank => true }, :class => 'text'
+      
     %li
       = form.label :title
       = form.text_field :title, :class => 'text'
+    
     %li
       :javascript
         mySettings['previewParserPath'] = "#{@post.id.nil? ? admin_preview_new_post_path : preview_admin_post_path(@post)}"

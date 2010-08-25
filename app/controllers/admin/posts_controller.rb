@@ -5,7 +5,7 @@ class Admin::PostsController < ApplicationController
   layout 'admin'
 
   def index
-    @posts = Post.all
+    @posts = Post.find(:all, :order => 'category_id DESC, position')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,12 +26,24 @@ class Admin::PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:post])
-
+    
+    unless params[:data].blank?
+      image = @post.images.build
+      image.data = params[:data]
+    end
+    
     respond_to do |format|
-      if @post.save
-        flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to admin_posts_path }
+      if @post.valid? and ( image ? image.valid? : true )
+        
+        if ( image ? image.save : true ) and @post.save
+          flash[:success] = 'Artikel wurde erfolgreich erstellt.'
+          
+          format.html { redirect_to edit_admin_post_path(@post) }          
+        else
+          format.html { render :action => "new" }
+        end
       else
+        logger.debug "***** !!!!! Errors: " + @post.errors.inspect
         format.html { render :action => "new" }
       end
     end
@@ -39,13 +51,25 @@ class Admin::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
+    @post.attributes = params[:post]
+    
+    unless params[:data].blank?
+      image = @post.images.build
+      image.data = params[:data]
+    end
+    
     respond_to do |format|
-      if @post.update_attributes(params[:post])
-        flash[:notice] = 'Post was successfully updated.'
-        format.html { redirect_to admin_posts_path }
+      if @post.valid? and ( image ? image.valid? : true )
+        
+        if ( image ? image.save : true ) and @post.save
+          flash[:success] = 'Artikel wurde erfolgreich bearbeitet.'
+          format.html { redirect_to edit_admin_post_path(@post) }
+        else
+          format.html { render :action => "new" }
+        end
       else
-        format.html { render :action => "edit" }
+        logger.debug "***** !!!!! Errors: " + @post.errors.inspect
+        format.html { render :action => "new" }
       end
     end
   end
@@ -73,4 +97,18 @@ class Admin::PostsController < ApplicationController
     end
   end
   
+  def sort
+    _posts = params[:sortable_posts]
+    _posts.delete_if {|key, value| key.blank? }
+    
+    @posts = Post.find(_posts)
+    @posts.each do |post|
+      post.position = _posts.index(post.id.to_s) + 1
+      post.save
+    end
+    
+    respond_to do |format|
+      format.js { render :nothing => true }
+    end
+  end
 end

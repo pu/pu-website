@@ -1,1 +1,3 @@
-= @page.body if @page
+- if @page
+  - page_title(@page.title)
+  = @page.body

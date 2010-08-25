@@ -1,4 +1,4 @@
-
+- page_title @posts.first.category.name
 #content
   %h1
     - if @posts.first
@@ -6,7 +6,11 @@
 
   #posts-index
     - for post in @posts
-      .post
+      .post{ :class => (!post.images.blank? ? 'with-image' : '')  }
+        - unless post.images.blank?
+          .preview-image
+            = link_to image_tag( post.images.first.url(:overview), :alt => post.title, :title => post.title ), (post.category.name == 'Aktuelles' ? post_path(post) : project_path(post) )
+      
         %h2.title
           = link_to post.title, (post.category.name == 'Aktuelles' ? post_path(post) : project_path(post) )
           
@@ -15,4 +19,4 @@
           
           %br
           .read-more
-            = link_to('weiterlesen', post_path(post))
+            = link_to( 'weiterlesen', (post.category.name == 'Aktuelles' ? post_path(post) : project_path(post) ) )

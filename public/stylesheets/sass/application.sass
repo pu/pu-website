@@ -1,3 +1,5 @@
+@import mixins.sass
+
 body
   background: #FF9933
   margin: 0
@@ -46,11 +48,11 @@ br.clear
     list-style-type: none
 
   ul
-    margin-left: 30px
+    margin-left: 20px
 
   li
     float: left
-    margin-right: 25px
+    margin-right: 20px
     font-size: 1.2em
     text-transform: uppercase
 
@@ -110,17 +112,17 @@ br.clear
     padding-right: 16px
     float: left
     
-  / 
-  / &.news
-  /   width: 220px
-  /   float: right
-  / 
-  / &.firstnews
-  /   width: 214px
-  /   float: left
-  /   border-right: 1px solid #ccc
-  /   margin-left: 16px
-  /   padding-right: 16px
+  // 
+  // &.news
+  //   width: 220px
+  //   float: right
+  // 
+  // &.firstnews
+  //   width: 214px
+  //   float: left
+  //   border-right: 1px solid #ccc
+  //   margin-left: 16px
+  //   padding-right: 16px
 
   &.imprint
     width: 450px
@@ -151,18 +153,44 @@ h1
   
   #posts-index
     .post
+      +self-clearing
+        
       h2.title
         margin: 15px 0 5px 0
-        
+          
         a
           color: #333
           text-decoration: none
         
-      .body
+      .body        
         .read-more
           margin: 5px 0
           font-size: 13px
+          
+      &.with-image
+        .preview-image
+          float: left
+          
+        .body, h2
+          margin-left: 140px
 
+#post
+  margin-bottom: 25px
+  
+  .images
+    +self-clearing
+    margin-top: 25px
+    
+    a.preview-image
+      margin-right: 10px
+      float: left
+      width: 120px
+      display: block
+      border: 3px solid #ccc
+    
+      &:hover
+        border: 3px solid #FF9933
+      
 
 #footer
   background: #555555
@@ -174,7 +202,23 @@ h1
     width: 760px
     color: white
     margin: 0 auto
-
+    
+    
+    ul.navigation
+      width: 500px
+      padding: 20px 15px
+      line-height: 1.5
+      
+        
+      li
+        display: inline
+        margin-right: 15px
+        
+        
+        a:hover
+          color: #fff
+          
+    
     span
       display: block
       float: left
@@ -183,3 +227,4 @@ h1
 
       &.totop
         float: right
+        

@@ -1,11 +1,26 @@
-%h1 Editing Post
+= error_messages_for :news
 
-%p
-  = link_to 'Show', admin_post_path(@post)
-  = link_to 'Back', admin_posts_path
+#headline
+  %h1
+    = "Artikel '#{h(@post.title)}' bearbeiten"
 
-- form_for @post, :url => admin_post_path(@post) do |form|
+- form_for @post, :url => admin_post_path(@post), :method => :post, :html => { :class => 'form', :multipart => true } do |form|
+
   = render :partial => 'form', :locals => { :form => form }
   
-  %p.button
-    = form.submit 'Update'
+  %h2{ :id => "pictures_headline" }
+    Bilder
+    = surround "(",")" do
+      = !@post.images.blank? ? @post.images.length : "0"
+  
+  = render :partial => 'shared/pictures_upload', :locals => { :f => form }
+  
+  = render :partial => 'shared/pictures', :locals => { :model_object => @post }
+  
+  %br.fclear
+  
+  .button
+    = submit_tag "Ändern"
+    oder 
+    = link_to 'Zurück', admin_posts_path
+  

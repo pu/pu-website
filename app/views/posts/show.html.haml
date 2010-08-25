@@ -1,3 +1,5 @@
+-page_title("#{@post.title} | #{@post.category.name}")
+
 #main-content
   #post
     %h1
@@ -5,3 +7,9 @@
       
     %p
       = @post.body
+      
+    - unless @post.images.blank?
+      .images
+        - @post.images.each do |image|
+          
+          = link_to image_tag( image.url(:overview), :alt => @post.title, :title => @post.title ), image.url(:lightbox), :class => 'preview-image', :rel => 'colorbox'

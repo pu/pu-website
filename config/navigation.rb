@@ -22,19 +22,19 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Define the primary navigation
   navigation.items do |primary|
-    primary.item :home, 'Startseite', root_path
+    primary.item :home, 'H', root_path, :class => 'startpage'
     primary.item :posts, 'Aktuelles', posts_path
     primary.item :projects, 'Projekte', projects_path
-    
-    primary.item :contact, 'Kontakt/Impressum', page_path('kontakt') 
-    primary.item :admin, 'Verwaltung', admin_path
-    # primary.item :donate, 'Spenden', page_path('spenden') 
+    primary.item :pate, 'Pate werden', page_path('pate-werden') 
+    primary.item :members, 'Fördermitglied', page_path('foerdermitglied-werden') 
+    primary.item :donate, 'Spenden', page_path('spenden') 
+    primary.item :about, 'Über uns', page_path('ueber-uns') 
     
     # you can also specify a css id or class to attach to this particular level
     # works for all levels of the menu
     
     # primary.dom_id = 'menu'
-    # primary.dom_class = 'sf-menu'
+    primary.dom_class = 'navigation'
     
     # You can turn off auto highlighting for a specific level
     # primary.auto_highlight = false

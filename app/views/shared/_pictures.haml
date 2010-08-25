@@ -1,0 +1,45 @@
+
+:javascript
+  $(document).ready(function() {
+    $('#pictures .draggable').css('visibility', 'hidden');
+    $('#pictures .image').hover(
+      function(){
+        $(this).children('.draggable').css('visibility', 'visible');
+      },
+      function(){
+        $('#pictures .draggable').css('visibility', 'hidden');
+      }
+    );
+  
+    $("#pictures ul").sortable({
+      opacity: 0.5,
+      cursor: 'move',
+      handle: '.draggable',
+      stop: function() {
+        var result = $('#pictures ul').sortable('serialize');
+        false;
+        $.ajax({
+          type: "POST",
+          url: "#{sort_admin_images_path}",
+          data: result + '&authenticity_token=' + encodeURIComponent("#{form_authenticity_token}"),
+          dataType : 'text/javascript'
+        });
+      } 
+    });
+  });
+
+- unless model_object.images.blank?
+  #pictures{ :style => 'margin: 0 0 0 100px;' }
+    %ul
+      - model_object.images.each do |image|
+        - link_name = truncate(model_object.title, :length => 20)
+        
+        %li#image[image]
+          .draggable
+            Drag here
+
+          .image
+            = link_to image_tag( image.url(:overview), :alt => link_name + image.id.to_s , :title => link_name ), image.url(:full), :class => 'lightbox'
+            %br
+          
+            = link_to_remote('löschen', :url => send("admin_#{model_object.class.name.underscore}_image_path", model_object.id, image.id ), :method => :delete, :confirm => "Soll das Bild wirklich gelöscht werden?" )

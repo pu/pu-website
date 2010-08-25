@@ -5,6 +5,11 @@
     %li
       = form.label :title
       = form.text_field :title, :class => 'text'
+    
+    %li
+      = form.label :seo_title
+      = form.text_field :seo_title, :class => 'text'
+    
     %li
       :javascript
         mySettings['previewParserPath'] = "#{@page.id.nil? ? admin_preview_new_page_path : preview_admin_page_path(@page)}"

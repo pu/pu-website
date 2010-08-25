@@ -86,7 +86,8 @@ body
         +column(24)
         :width 1152px
         
-        /:margin -30px 0 0 0
+        //:margin -30px 0 0 0
+
         :font
           :size 0.9em
           :weight bold
@@ -172,11 +173,26 @@ body
         .pagination
           :margin 10px
         
+        .fclear
+          clear: both
+          height: 0
+          line-height: 0
+          font-size: px
+
+        #headline:after
+          content: "."
+          display: block
+          height: 0
+          clear: both
+          visibility: hidden
+        
         .form
           +ninja-form
           
           .description_icon
             :margin-left 10px
+            
+            
           ul
             li
               +field-with-errors
@@ -189,7 +205,9 @@ body
             :font-size .9em
             tr
               :border-bottom 1px solid #000
+
               // overwrite blueprint behavior
+
               &.odd:hover
                 td
                   :background-color = !row_hover_color
@@ -234,3 +252,38 @@ body
 
       ul
         +horizontal-list(5px)
+    
+    #image_flash
+      padding: 20px
+      font-size: 1em
+      background-color: #ffff00
+
+    #square_image_flash
+      background-color: #ffff00
+      height: 70px
+      width: 120px
+      padding-top: 50px
+      color: #292929
+      font-weight: bold
+
+    #pictures .image
+      float: left 
+      margin: 5px 
+      text-align: center
+
+    #pictures li.image
+      height: 175px
+      width: 120px
+
+    #pictures li.image .draggable
+      background: transparent url(images/arrow_move.png) no-repeat 0 0
+      padding: 0 0 0 30px
+      font-size: 10px
+      text-align: left
+      margin: 0 0 0 10px
+
+    #pictures li.image .draggable:hover
+      cursor: move
+
+    #pictures li.image .image
+      font-size: 10px

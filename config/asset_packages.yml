@@ -5,6 +5,7 @@ javascripts:
   - jquery-ui-1.7.2.custom.min
   - jquery_rails_ujs_helper
   - jquery.tablesorter.min
+  - jquery.colorbox-min
   - application
 
 - admin_base:
@@ -16,8 +17,9 @@ javascripts:
   - jquery_rails_ujs_helper
   - jquery.tablesorter.min
   - jquery.tablesorter.pager
-  # - /markitup/jquery.markitup.pack.js
-  # - /markitup/sets/html/set.js
+  - jquery.tablednd.0.5
+  - /markitup/jquery.markitup.pack.js
+  - /markitup/sets/html/set.js
   - admin
   
 stylesheets: 
@@ -25,14 +27,16 @@ stylesheets:
   - application
   - plugins/jquery.lightbox-0.5
   - tablesorter/tablesorter
+  - colorbox
 
 - admin_session:
-  - session 
+  - session
+  
 - admin_base:
   - admin
   - plugins/jquery-ui-1.7.2.custom
   - plugins/jquery.lightbox-0.5
   - plugins/superfish
   - tablesorter/tablesorter
-  # - /markitup/skins/simple/style.css
-  # - /markitup/sets/html/style.css
+  - /markitup/skins/simple/style.css
+  - /markitup/sets/html/style.css

@@ -26,8 +26,12 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :pages, :member => { :preview => :post }
 
     admin.preview_new_post '/posts/preview', :controller => 'posts', :action => 'preview'
-    admin.resources :posts, :member => { :preview => :post }
+    admin.resources :posts, :member => { :preview => :post }, :collection => { :sort => :post } do |post|
+      post.resources :images
+    end
 
+    admin.resources :images, :collection => { :sort => :post }
+    
     admin.resource :dashboard
     # admin.resources :users
 

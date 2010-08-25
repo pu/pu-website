@@ -13,6 +13,7 @@ features_rcov
 features.txt
 log/*
 public/assets
+public/images
 public/stylesheets/*.css
 public/stylesheets/*_packaged.css
 public/javascripts/*_packaged.js

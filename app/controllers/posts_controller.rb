@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
   
   def show
-    @post = Post.find(params[:id])
-    page_title(@post.title) if @post
+    @post = Post.visible.find(params[:id])
     
     render
   end
@@ -16,8 +15,7 @@ class PostsController < ApplicationController
       category = 'Aktuelles'
     end
     
-    page_title category
-    @posts = Post.category_name_is(category)
+    @posts = Post.category_name_is(category).visible.ordered
     
     render
   end

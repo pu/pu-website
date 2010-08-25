@@ -5,6 +5,6 @@ class Page < ActiveRecord::Base
   
   acts_as_textiled :body
   
-  has_friendly_id :title, :use_slug => true, :strip_diacritics => true
+  has_friendly_id :seo_title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
   
 end
