@@ -8,7 +8,7 @@ class KidsController < ApplicationController
 
   def index
     @page_title = "Alle Kinder"
-    @kids = Kid.find(:all, :include => [:school, :school_visit, :parents, :letters_written], :order => 'name ASC', :limit => 20)
+    @kids = Kid.find(:all, :include => [:school, :school_visit, :parents, :letters_written], :order => 'name ASC')
   end
 
   def show
