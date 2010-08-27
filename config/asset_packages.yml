@@ -25,7 +25,7 @@ stylesheets:
   - application
   - plugins/jquery.lightbox-0.5
   - tablesorter/tablesorter
-  - colorbox
+  - plugins/colorbox
 
 - admin_session:
   - session

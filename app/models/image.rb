@@ -26,8 +26,8 @@ class Image < ActiveRecord::Base
       :all => "-strip"
     },
     #:rounded => 7,
-    :path => ":rails_root/public/:test_env:class/:id_partition/:random_name_:style.:extension",
-    :url => "/:test_env:class/:id_partition/:random_name_:style.:extension",
+    :path => ":rails_root/public/:test_envassets/:id_partition/:random_name_:style.:extension",
+    :url => "/:test_envassets/:id_partition/:random_name_:style.:extension",
     :whiny => true
 
   validates_attachment_presence :data, :message => 'muss ausgewählt werden.'
