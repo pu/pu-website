@@ -16,7 +16,7 @@
   = image_tag @kid.picture.url(:profile)
 %p
   %strong Geburtsjahr:
-  =h @kid.birthday.strftime("%Y")
+  =h @kid.birthday.strftime("%Y") if @kid.birthday
 %p
   %strong Wohnort:
   =h @kid.town
@@ -26,7 +26,7 @@
 
 %p
   %strong Schule:
-  =h @kid.school.name
+  =h @kid.school.name if @kid.school
   =h @kid.school_visit.description unless @kid.school_visit.nil?
 
 

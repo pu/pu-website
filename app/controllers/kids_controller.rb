@@ -21,7 +21,7 @@ class KidsController < ApplicationController
   end
 
   def create
-    @kid = Kid.new(params[:kid], :status => "active")
+    @kid = Kid.new(params[:kid])
     if @kid.save
       flash[:notice] = "Successfully created kid."
       redirect_to @kid
