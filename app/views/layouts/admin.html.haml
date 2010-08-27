@@ -2,40 +2,38 @@
 %html
 
   %head
-    %title= "#{controller.controller_name}: #{controller.action_name} | ninjaconcept no-brainer webadmin"
-    
+    %title= "#{controller.controller_name}: #{controller.action_name} | ninjaconcept no-brainer webadmin"
+
     %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "content-type" }/
     %meta{ :content => "false", "http-equiv" => "imagetoolbar" }/
     %link{ "rel" => "shortcut icon", "type" => "image/x-icon",  "href" => "/favicon.ico" }/
-    
+
     = stylesheet_link_merged :admin_base
-    =# stylesheet_link_tag '/markitup/skins/simple/style.css', '/markitup/sets/html/style.css'
-      
+
     = javascript_include_merged :admin_base
-    =# javascript_include_tag '/markitup/jquery.markitup.pack.js', '/markitup/sets/html/set.js'
-        
+
     = yield_authenticity_token
 
   %body
     #container
-      
+
       #header
-        
+
         #logo
           = link_to(image_tag("admin/logo-small.png", :alt => "#{APP_CONFIG[:site_name]}"), admin_path, :title => "#{APP_CONFIG[:site_name]}" )
-        
+
         = render :partial => 'admin/layouts/login_box'
-        
+
         #navigation
           = render_navigation(:context => :admin)
-      
+
       #content_outer
-        
+
         #flash_messages
           - flash.each do |key, value|
             %div{:class => key}= h(value)
 
         #content
           = yield
-      
+
       = render :partial => 'admin/layouts/footer'
