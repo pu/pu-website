@@ -9,7 +9,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
 
   config.gem 'haml', :version => '~> 3.0'
-  config.gem 'compass', :version => '>= 0.8.17'
+  config.gem 'compass', :version => '= 0.8.17'
 
   config.gem "jrails", :version => "~> 0.6"
   config.gem 'mysql', :version => '>= 2.8'
