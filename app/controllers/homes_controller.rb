@@ -2,7 +2,7 @@ class HomesController < ApplicationController
   
   def show
     
-    @posts = Post.most_recent
+    @posts = Post.featured
     
     render
   end

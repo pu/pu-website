@@ -14,6 +14,7 @@ class Post < ActiveRecord::Base
   
   named_scope :most_recent, :order => 'created_at DESC', :limit => '3'  
   named_scope :ordered, :order => :position
+  named_scope :featured, :conditions => { :featured => true }
   
   state_machine :visibility_state, :initial => :preview do
     event :show do

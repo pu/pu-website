@@ -6,6 +6,10 @@
 .form
   %ul.list
     %li
+      = form.label :featured, 'auf Startseite'
+      = form.check_box :featured
+      
+    %li
       = form.label :visibility_state, 'Sichtbarkeit'
       = form.select :visibility_state, Post.visibility_states.collect, { :include_blank => true, :class => 'text' }
       
