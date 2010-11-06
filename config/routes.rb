@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
+  map.resources :donations, :except => :all, :collection => { :success => :get, :cancel => :get }
+
   map.resources :parentships, :path_prefix => "verwaltung", :as => "patenschaften"
   map.resources :kids, :path_prefix => "verwaltung", :as => "kinder", :member => {:send_profile => :post}
 
