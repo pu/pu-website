@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :donations, :except => :all, :collection => { :success => :get, :cancel => :get }
 
-  map.resources :parentships, :path_prefix => "verwaltung", :as => "patenschaften"
+  map.resources :parentships, :path_prefix => "verwaltung", :as => "patenschaften", :collection => { :create_batched => :post}
   map.resources :kids, :path_prefix => "verwaltung", :as => "kinder", :member => {:send_profile => :post}
 
   map.kids_without_letter '/verwaltung/kinder_ohne_brief', :controller => 'kids', :action => 'kids_without_letters'
@@ -33,7 +33,7 @@ ActionController::Routing::Routes.draw do |map|
     end
 
     admin.resources :images, :collection => { :sort => :post }
-    
+
     admin.resource :dashboard
     # admin.resources :users
 

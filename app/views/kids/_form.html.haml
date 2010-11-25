@@ -1,50 +1,5 @@
-- form_for @kid , :html => { :multipart => true } do |f|
-  = f.error_messages
-  %p
-    = image_tag @kid.picture.url(:thumb)
-  %p
-    = f.label :number, "Nummer"
-    %br
-    = f.text_field :number
-  %p
-    = f.label :firstname, "Vorname"
-    %br
-    = f.text_field :firstname
-  %p
-    = f.label :name, "Name"
-    %br
-    = f.text_field :name
-  %p
-    = f.label :town, "Ort"
-    %br
-    = f.text_field :town
-  %p
-    = f.label :birthday, "Geburtstag"
-    %br
-    = f.date_select :birthday, :start_year => (Time.now.year - 25), :end_year => (Time.now.year), :order => [:day, :month, :year], :include_blank => "--"
-  %p
-    = f.label :description, "Beschreibung"
-    %br
-    = f.text_area :description
-
-    %p
-      %strong Pate:
-      =h @kid.parents.first.firstname unless @kid.parents.first.nil?
-      =h @kid.parents.first.name unless @kid.parents.first.nil?
-
-  %p
-    = f.label :picture, "Bild"
-    %br
-    = f.file_field :picture, { :class => 'file' }
-
-  %p
-    = f.label :school_id, "Schule"
-    %br/
-    = f.select :school_id, school_select_for_kids, :include_blank => "- keine Angabe -"
-  %p
-    = f.label :school, "Neue Schule (wird nur angelegt, wenn hier etwas eingetragen wird)"
-    %br/
-    = text_field_tag :new_school
+- form_for @kid, :html => { :multipart => true } do |f|
+  = render :partial => "form_fields", :locals => {:f => f}
 
   %p
     = f.submit "Speichern"

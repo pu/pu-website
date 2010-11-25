@@ -1,28 +1,43 @@
-- form_for @parentships do |f|
+%h2 Neue Patenschaft anlegen
+
+- form_for @parentship, :url => :create_batched_parentships do |f|
+  %table
+    %thead
+      %th
+        Neues Kind
+      %th
+        Neuer Pate
+    %tr
+      %td
+        - fields_for @kid do |fk|
+          = render :partial => 'kids/form_fields', :locals => {:f => fk }
+      %td
+        - fields_for @parent do |fp|
+          = render :partial => 'parents/form_fields', :locals => {:f => fp}
+
+    %tr
+      %td
+        = f.submit "Patenschaft anlegen"
+
+
+%h2
+  Neue Patenschaft für existierende Kinder
+- form_for @parentship do |f|
   = f.error_messages
   %p
     = f.label :kid_id, "Kind"
-    %br
     = f.select :kid_id, kids_select_for_parentship
-  %p
     = f.label :parent_id, "Pate"
-    %br
     = f.select :parent_id, parents_select_for_parentship
   %p
     = f.label :starts_at, "Start"
-    %br
     = f.date_select :starts_at, :order => [:month, :year]
-  %p
     = f.label :expires_at, "Ende"
-    %br
     = f.date_select :expires_at, :order => [:month, :year]
   %p
     = f.label :fee, "Beitrag"
-    %br
     = f.text_field :fee
-  %p
     = f.label :paying_period, "Abrechnungsperiode"
-    %br
     = f.text_field :paying_period
   %p
     = f.submit "Speichern"
