@@ -27,6 +27,8 @@ class Kid < ActiveRecord::Base
 
  named_scope :without_parent, {:select => "kids.*", :joins => "LEFT OUTER JOIN parentships ON parentships.kid_id = kids.id", :conditions => 'parentships.parent_id is NULL' }
 
+ after_create :create_all_letters_written
+
 
  def recent_letters_written
    recent_letters = Letter.recent(2)
@@ -40,6 +42,11 @@ class Kid < ActiveRecord::Base
    receiver_email_array.each{ |r|
      KidsMailer.deliver_profile(r, self)
      }
+ end
+
+ def initialize(params ={})
+   super
+   self.number ||= (Kid.maximum(:number) || 0) + 1
  end
 
  private
