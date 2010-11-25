@@ -42,7 +42,7 @@
     %br/
     = f.select :school_id, school_select_for_kids, :include_blank => "- keine Angabe -"
   %p
-    = f.label :school, "Neue Schule (wird erzeugt, wenn hier etwas eingetragen wird)"
+    = f.label :school, "Neue Schule (wird nur angelegt, wenn hier etwas eingetragen wird)"
     %br/
     = text_field_tag :new_school
 
