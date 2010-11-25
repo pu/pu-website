@@ -39,8 +39,12 @@
 
   %p
     = f.label :school_id, "Schule"
-    %br
+    %br/
     = f.select :school_id, school_select_for_kids, :include_blank => "- keine Angabe -"
-    
+  %p
+    = f.label :school, "Neue Schule (wird erzeugt, wenn hier etwas eingetragen wird)"
+    %br/
+    = text_field_tag :new_school
+
   %p
     = f.submit "Speichern"
