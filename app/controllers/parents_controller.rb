@@ -58,5 +58,12 @@ class ParentsController < ApplicationController
     flash[:notice] = "Successfully destroyed parent."
     redirect_to parents_url
   end
+
+  def search
+    @search_text = params[:search_text]
+    @parents = Parent.name_or_firstname_like(@search_text)
+    render :action => 'index'
+  end
+
 end
 

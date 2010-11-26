@@ -79,4 +79,10 @@ class KidsController < ApplicationController
     render :action => 'index'
   end
 
+  def search
+    @search_text = params[:search_text]
+    @kids = Kid.name_or_firstname_like(@search_text)
+    render :action => 'index'
+  end
+
 end

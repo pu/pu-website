@@ -6,6 +6,12 @@
 = render :partial => "layouts/menu"
 
 %p
+  - form_tag search_parentships_path, :method => :get do
+    = text_field_tag :search_text, @search_text
+    = submit_tag "Suche"
+
+
+%p
   = render :partial => "layouts/tablesorter_pagination"
 %table.tablesorter
   %thead

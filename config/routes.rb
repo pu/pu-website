@@ -2,13 +2,13 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :donations, :except => :all, :collection => { :success => :get, :cancel => :get }
 
-  map.resources :parentships, :path_prefix => "verwaltung", :as => "patenschaften", :collection => { :create_batched => :post}
-  map.resources :kids, :path_prefix => "verwaltung", :as => "kinder", :member => {:send_profile => :post}
+  map.resources :parentships, :path_prefix => "verwaltung", :as => "patenschaften", :collection => { :create_batched => :post, :search => :get}
+  map.resources :kids, :path_prefix => "verwaltung", :as => "kinder", :member => {:send_profile => :post}, :collection => {:search => :get}
 
   map.kids_without_letter '/verwaltung/kinder_ohne_brief', :controller => 'kids', :action => 'kids_without_letters'
   map.kids_without_parent '/verwaltung/kinder_ohne_paten', :controller => 'kids', :action => 'kids_without_parents'
 
-  map.resources :parents, :path_prefix => "verwaltung", :as => "paten", :collection => {:address_index => :get}
+  map.resources :parents, :path_prefix => "verwaltung", :as => "paten", :collection => {:address_index => :get, :search => :get}
   map.resources :schools, :path_prefix => "verwaltung", :as => "schulen"
   map.resources :letters, :path_prefix => "verwaltung", :as => "kinderbriefe"
   map.resources :newsletters, :path_prefix => "verwaltung", :as => "newsletter", :member => {:send_to_all_parents => :post, :send_test => :post}
