@@ -62,7 +62,7 @@ class Kid < ActiveRecord::Base
  end
 
  def school_id
-   school.id
+   school && school.id
  end
 
  private
