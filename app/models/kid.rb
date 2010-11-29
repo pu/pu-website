@@ -61,6 +61,10 @@ class Kid < ActiveRecord::Base
    visit.save!
  end
 
+ def school_id
+   school.id
+ end
+
  private
 
  def create_all_letters_written
