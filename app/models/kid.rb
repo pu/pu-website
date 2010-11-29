@@ -1,5 +1,5 @@
 class Kid < ActiveRecord::Base
-  attr_accessible :name, :firstname, :birthday, :description, :number, :sponsored_until, :picture, :school_id, :town
+  attr_accessible :name, :firstname, :birthday, :description, :number, :sponsored_until, :school_id, :picture, :town
 
   has_many :parentships
   has_many :parents, :through => :parentships
@@ -47,6 +47,18 @@ class Kid < ActiveRecord::Base
  def initialize(params ={})
    super
    self.number ||= (Kid.maximum(:number) || 0) + 1
+ end
+
+ def school=(school)
+   visit = SchoolVisits.find_or_create_by_kid_id(id)
+   visit.school = school
+   visit.save!
+ end
+
+ def school_id= (school_id)
+   visit = SchoolVisit.find_or_create_by_kid_id(id)
+   visit.school_id = school_id
+   visit.save!
  end
 
  private
