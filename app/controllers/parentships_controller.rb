@@ -79,8 +79,7 @@ class ParentshipsController < ApplicationController
     kids = Kid.name_or_firstname_like(@search_text)
     parents = Parent.name_or_firstname_like(@search_text)
 
-    @parentships = kids.collect{|k| k.parentships } << parents.collect{|p| p.parentships}
-    @parentships.flatten!
+    @parentships = kids.collect{|k| k.parentships } & parents.collect{|p| p.parentships}
     render :action => 'index'
   end
 
