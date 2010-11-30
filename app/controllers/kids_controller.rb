@@ -37,6 +37,8 @@ class KidsController < ApplicationController
 
   def update
     @kid = Kid.find(params[:id])
+    expire_view_cache_for_kid(@kid)
+
     @kid.school = School.find_or_create_by_name(:name => params[:new_school]) unless params[:new_school].blank?
 
     if @kid.update_attributes(params[:kid])

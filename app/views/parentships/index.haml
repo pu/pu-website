@@ -63,7 +63,7 @@
       - for parentship in @parentships
         - kid = parentship.kid
         - parent = parentship.parent
-        - cache :key => "parentships_row_#{parentship.id}" do
+        - cache "parentships_row_#{parentship.id}" do
           %tr
             = render :partial => 'kids/kids_row', :locals => {:kid => kid}
             - for letter in kid.recent_letters_written
