@@ -1,28 +1,5 @@
-%h2 Neue Patenschaft anlegen
-
-- form_for @parentship, :url => :create_batched_parentships do |f|
-  %table
-    %thead
-      %th
-        Neues Kind
-      %th
-        Neuer Pate
-    %tr
-      %td
-        - fields_for @kid do |fk|
-          = render :partial => 'kids/form_fields', :locals => {:f => fk }
-      %td
-        - fields_for @parent do |fp|
-          = render :partial => 'parents/form_fields', :locals => {:f => fp}
-
-    %tr
-      %td
-        = f.submit "Patenschaft anlegen"
-
-%hr
-
 %h2
-  Neue Patenschaft für existierende Kinder
+  Patenschaft aus bereits angelegten Kindern und Paten
 - form_for @parentship do |f|
   = f.error_messages
   %p

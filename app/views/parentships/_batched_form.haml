@@ -1,0 +1,20 @@
+- form_for @parentship, :url => :create_batched_parentships do |f|
+  - @kid ||= @parentship.kid
+  - @parent ||= @parentship.parent
+  %table
+    %thead
+      %th
+        Neues Kind
+      %th
+        Neuer Pate
+    %tr
+      %td
+        - fields_for @kid do |fk|
+          = render :partial => 'kids/form_fields', :locals => {:f => fk }
+      %td
+        - fields_for @parent do |fp|
+          = render :partial => 'parents/form_fields', :locals => {:f => fp}
+
+    %tr
+      %td
+        = f.submit "Patenschaft anlegen"
