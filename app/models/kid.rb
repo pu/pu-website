@@ -1,5 +1,5 @@
 class Kid < ActiveRecord::Base
-  attr_accessible :name, :firstname, :birthday, :description, :number, :sponsored_until, :school_id, :picture, :town
+  attr_accessible :name, :firstname, :birthday, :description, :number, :sponsored_until, :school_id, :picture, :town, :grade
 
   has_many :parentships
   has_many :parents, :through => :parentships
@@ -9,6 +9,7 @@ class Kid < ActiveRecord::Base
 
   has_many :letters_written
 
+  accepts_nested_attributes_for :school_visit, :school
 
   has_attached_file :picture, :styles => { :thumb => ["24x24#", :jpg], :profile => ["100x100#", :jpg] , :large => ["240x240#", :jpg], :full => ["800x600>", :jpg] }, :convert_options => {:all => "-strip -quality 80"},
                                                            :path => ":rails_root/public/pictures/kids/:basename_:style.:extension",
@@ -63,6 +64,16 @@ class Kid < ActiveRecord::Base
 
  def school_id
    school && school.id
+ end
+
+ def grade=(g)
+   visit = SchoolVisit.find_or_create_by_kid_id(id)
+   visit.grade = g
+   visit.save!
+ end
+
+ def grade
+   school_visit.present? ? school_visit.grade : ""
  end
 
  private

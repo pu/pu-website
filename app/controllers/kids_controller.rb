@@ -23,6 +23,7 @@ class KidsController < ApplicationController
     @kid = Kid.new(params[:kid])
 
     @kid.school = School.find_or_create_by_name(:name => params[:new_school]) unless params[:new_school].blank?
+
     if @kid.save
       flash[:notice] = "Successfully created kid."
       redirect_to @kid
@@ -39,9 +40,11 @@ class KidsController < ApplicationController
     @kid = Kid.find(params[:id])
     expire_view_cache_for_kid(@kid)
 
+    @kid.attributes = params[:kid]
+
     @kid.school = School.find_or_create_by_name(:name => params[:new_school]) unless params[:new_school].blank?
 
-    if @kid.update_attributes(params[:kid])
+    if @kid.save
 
       expire_view_cache_for_kid(@kid)
 
