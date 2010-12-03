@@ -22,11 +22,13 @@ class ParentshipsController < ApplicationController
   end
 
   def create
-    @parentship = Parentship.new(params[:parentships])
+    @parentship = Parentship.new(params[:parentship])
     if @parentship.save
       flash[:notice] = "Successfully created parentship."
       redirect_to @parentship
     else
+      @kid = Kid.new
+      @parent = Parent.new
       render :action => 'new'
     end
   end
@@ -40,12 +42,15 @@ class ParentshipsController < ApplicationController
   def create_batched
     @kid = Kid.new(params[:kid])
     @parent = Parent.new(params[:parent])
-    @parentship = Parentship.new(:kid => @kid, :parent => @parent)
+    @parentship = Parentship.new(params[:parentship])
+    @parentship.kid = @kid
+    @parentship.parent = @parent
+
 
     if @kid.valid? && @parent.valid? && @parentship.valid?
       @kid.save
       @parent.save
-      @parentship = Parentship.create!(:kid_id => @kid.id, :parent_id => @parent.id)
+      @parentship.save!
       render :action => 'show', :id => @parentship.id
     else
       render :action => 'new'

@@ -9,11 +9,27 @@
         Neuer Pate
     %tr
       %td
+        %h3 Kind
         - fields_for @kid do |fk|
           = render :partial => 'kids/form_fields', :locals => {:f => fk }
       %td
+        %h3 Pate
         - fields_for @parent do |fp|
           = render :partial => 'parents/form_fields', :locals => {:f => fp}
+
+        %h3 Patenschaft
+        - fields_for @parentship do |fps|
+          = fps.error_messages
+          %p
+            = fps.label :starts_at, "Start"
+            = fps.date_select :starts_at, :order => [:month, :year]
+            = fps.label :expires_at, "Ende"
+            = fps.date_select :expires_at, :order => [:month, :year]
+          %p
+            = fps.label :fee, "Beitrag"
+            = fps.text_field :fee
+            = fps.label :paying_period, "Abrechnungsperiode"
+            = fps.text_field :paying_period
 
     %tr
       %td
