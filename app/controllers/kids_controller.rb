@@ -57,8 +57,8 @@ class KidsController < ApplicationController
 
   def destroy
     @kid = Kid.find(params[:id])
-    @kid.update_attribute(:status, "deleted")
-    flash[:notice] = "Successfully destroyed kid."
+    @kid.destroy
+    flash[:notice] = "Kind wurde gelöscht."
     redirect_to kids_url
   end
 
@@ -85,7 +85,7 @@ class KidsController < ApplicationController
 
   def search
     @search_text = params[:search_text]
-    @kids = Kid.name_or_firstname_like(@search_text)
+    @kids = Kid.name_or_firstname_or_number_like(@search_text)
     render :action => 'index'
   end
 

@@ -81,7 +81,7 @@ class ParentshipsController < ApplicationController
 
   def search
     @search_text = params[:search_text]
-    kids = Kid.name_or_firstname_like(@search_text)
+    kids = Kid.name_or_firstname_or_number_like(@search_text)
     parents = Parent.name_or_firstname_like(@search_text)
 
     @parentships = (kids.collect{|k| k.parentships } + parents.collect{|p| p.parentships}).flatten.uniq
