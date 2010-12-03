@@ -1,7 +1,7 @@
 module ParentshipsHelper
 
   def kids_select_for_parentship
-    Kid.find(:all).collect{ |k| [ "#{k.number} #{k.firstname} #{k.name}", k.id] }
+    Kid.find(:all).collect{ |k| [ "#{k.number} #{k.firstname} #{k.name}", k.id] }.reverse
   end
 
   def parents_select_for_parentship
