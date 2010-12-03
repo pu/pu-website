@@ -26,7 +26,8 @@ class ParentsController < ApplicationController
   end
 
   def create
-    @parent = Parent.new(params[:parent], :status => "active")
+    @parent = Parent.new(params[:parent])
+    @parent.status = "active"
     if @parent.save
       flash[:notice] = "Successfully created parent."
       redirect_to @parent
