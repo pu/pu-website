@@ -65,10 +65,11 @@
         - parent = parentship.parent
         - cache "parentships_row_#{parentship.id}" do
           %tr
-            = render :partial => 'kids/kids_row', :locals => {:kid => kid}
-            - for letter in kid.recent_letters_written
-              %td
-                = render :partial => "letters/letter_received", :locals => {:letter => letter, :redirect_action => :index}
+            - unless kid.nil?
+              = render :partial => 'kids/kids_row', :locals => {:kid => kid}
+              - for letter in kid.recent_letters_written
+                %td
+                  = render :partial => "letters/letter_received", :locals => {:letter => letter, :redirect_action => :index}
             = render :partial => 'parents/parents_row', :locals => {:parent => parent}
             %td
               = link_to "Anzeigen", parentship
