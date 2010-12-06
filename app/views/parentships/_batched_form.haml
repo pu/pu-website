@@ -22,9 +22,9 @@
           = fps.error_messages
           %p
             = fps.label :starts_at, "Start"
-            = fps.date_select :starts_at, :order => [:month, :year]
+            = fps.date_select :starts_at, :order => [:month, :year], :start_year => 1995, :include_blank => true
             = fps.label :expires_at, "Ende"
-            = fps.date_select :expires_at, :order => [:month, :year]
+            = fps.date_select :expires_at, :order => [:month, :year], :start_year => 1995
           %p
             = fps.label :fee, "Beitrag"
             = fps.text_field :fee

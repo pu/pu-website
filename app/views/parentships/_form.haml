@@ -9,9 +9,9 @@
     = f.select :parent_id, parents_select_for_parentship
   %p
     = f.label :starts_at, "Start"
-    = f.date_select :starts_at, :order => [:month, :year]
+    = f.date_select :starts_at, :order => [:month, :year], :start_year => 1995, :include_blank => true
     = f.label :expires_at, "Ende"
-    = f.date_select :expires_at, :order => [:month, :year]
+    = f.date_select :expires_at, :order => [:month, :year], :start_year => 1995, :include_blank => true
   %p
     = f.label :fee, "Beitrag"
     = f.text_field :fee
