@@ -71,6 +71,7 @@
                 %td
                   = render :partial => "letters/letter_received", :locals => {:letter => letter, :redirect_action => :index}
             = render :partial => 'parents/parents_row', :locals => {:parent => parent}
+            = render :partial => 'parentships/parentship_row', :locals => {:parentship => parentship}
             %td
               = link_to "Anzeigen", parentship
             %td
