@@ -63,7 +63,7 @@ class ParentshipsController < ApplicationController
 
   def update
     @parentship = Parentship.find(params[:id])
-    if @parentship.update_attributes(params[:parentships])
+    if @parentship.update_attributes(params[:parentship])
       flash[:notice] = "Successfully updated parentship."
       expire_view_cache_for_parentship(@parentship)
       redirect_to @parentship
