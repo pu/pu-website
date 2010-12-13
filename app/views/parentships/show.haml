@@ -3,74 +3,77 @@
 
 - title "Parentships"
 
-%h2
-  Kind:
-%p
-  = image_tag kid.picture.url(:thumb)
-  %strong
-    = h kid.firstname
-    = h kid.name
-%p
-  %strong Nummer:
-  =h kid.number
-%p
-  %strong Vorname:
-  =h kid.firstname
-%p
-  %strong Name:
-  =h kid.name
-%p
-  %strong Geburtstag:
-  =h kid.birthday
-%p
-  %strong Wohnort:
-  =h kid.town
-%p
-  %strong Beschreibung:
-  =h kid.description
-%p
-  %strong Status:
-  =h kid.status
-%p
-  %strong Schulstatus:
-  =h kid.school_visit.description unless kid.school_visit.nil?
-%h2
-  Pate:
-%p
-  %strong
-    = h parent.firstname
-    = h parent.name
+#parentship_kid{:style => "position: fixed; margin-top: 50px; margin-left: 000px"}
+  %h2
+    Kind:
+  %p
+    = image_tag kid.picture.url(:thumb)
+    %strong
+      = h kid.firstname
+      = h kid.name
+  %p
+    %strong Nummer:
+    =h kid.number
+  %p
+    %strong Vorname:
+    =h kid.firstname
+  %p
+    %strong Name:
+    =h kid.name
+  %p
+    %strong Geburtstag:
+    =h kid.birthday
+  %p
+    %strong Wohnort:
+    =h kid.town
+  %p
+    %strong Beschreibung:
+    =h kid.description
+  %p
+    %strong Status:
+    =h kid.status
+  %p
+    %strong Schulstatus:
+    =h kid.school_visit.description unless kid.school_visit.nil?
+
+#parentship_parent{:style => "position: fixed; margin-top: 50px; margin-left: 300px"}
+  %h2
+    Pate:
+  %p
+    %strong
+      = h parent.firstname
+      = h parent.name
+
+    %p
+      = h parent.street
+    %p
+      = h parent.zip_code
+    %p
+      = h parent.town
+    %p
+      = h parent.phone
+    %p
+      = h parent.email
+  %p
+    %strong
+      Beginn:
+    = h @parentship.starts_at
+  %p
+    %strong
+      Ende:
+    = h @parentship.expires_at
 
   %p
-    = h parent.street
+    %strong
+      Beitrag:
+    = h @parentship.fee
   %p
-    = h parent.zip_code
+    %strong
+      Beitragszeit:
+    = h @parentship.paying_period
   %p
-    = h parent.town
-  %p
-    = h parent.phone
-  %p
-    = h parent.email
-%p
-  %strong
-    Beginn:
-  = h @parentship.starts_at
-%p
-  %strong
-    Ende:
-  = h @parentship.expires_at
-
-%p
-  %strong
-    Beitrag:
-  = h @parentship.fee
-%p
-  %strong
-    Beitragszeit:
-  = h @parentship.paying_period
-%p
-  = link_to "Bearbeiten", edit_parentship_path(@parentship)
-  |
-  = link_to "Löschen", @parentship, :confirm => 'Diese Patenschaft wirklich löschen?', :method => :delete
-  |
-  = link_to "Übersicht Patenschaften", parentships_path
+    = link_to "Bearbeiten", edit_parentship_path(@parentship)
+    |
+    = link_to "Löschen", @parentship, :confirm => 'Diese Patenschaft wirklich löschen?', :method => :delete
+    |
+    = link_to "Übersicht Patenschaften", parentships_path
