@@ -47,6 +47,11 @@
   = f.text_field :grade
 
 %p
+  = f.label :school_visit_description, "Anmerkungen zum Schulbesuch"
+  %br/
+  = f.text_area :school_visit_description
+
+%p
   = f.label :school, "Neue Schule (wird nur erzeugt, wenn hier etwas eingetragen wird)"
   %br/
   = text_field_tag :new_school

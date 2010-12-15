@@ -50,8 +50,20 @@ class Kid < ActiveRecord::Base
    self.number ||= (Kid.maximum(:number) || 0) + 1
  end
 
+ def school_visit_description=(description)
+   visit = SchoolVisit.find_or_create_by_kid_id(id)
+   visit.description = descrtiption
+   visit.save!
+ end
+
+ def school_visit_description
+   visit = SchoolVisit.find_or_create_by_kid_id(id)
+   visit.description
+ end
+
+
  def school=(school)
-   visit = SchoolVisits.find_or_create_by_kid_id(id)
+   visit = SchoolVisit.find_or_create_by_kid_id(id)
    visit.school = school
    visit.save!
  end
