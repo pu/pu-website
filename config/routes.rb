@@ -22,6 +22,7 @@ ActionController::Routing::Routes.draw do |map|
   map.devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout' }
 
   map.admin '/admin', :controller => 'admin/dashboards', :action => 'show'
+
   map.namespace :admin do |admin|
 
     admin.preview_new_page '/pages/preview', :controller => 'pages', :action => 'preview'
@@ -41,5 +42,10 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.root :controller => "homes", :action => 'show'
+
+  map.user_root '/admin', :controller => 'admin/dashboards' # creates user_root_path
+  map.namespace :admin do |user|
+    user.root :controller => 'dashboards' # creates user_root_path
+  end
 
 end
