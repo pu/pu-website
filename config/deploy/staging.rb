@@ -21,6 +21,7 @@ set :migrate_env, "migration"
 #############################################################
 
 set :user, "rails"
+set :port, 30022
 set :domain, "#{staging_host}"
 server domain, :app, :web
 role :db, domain, :primary => true
